@@ -66,7 +66,7 @@ export class RSSCollector implements Collector {
           title: item.title,
           url: item.link,
           content: content.slice(0, 15000), // Limit content length
-          summary: item.contentSnippet || '',
+          description: item.contentSnippet || '',
           publishedAt: pubDate,
           source: this.id,
           sourceName: this.name,

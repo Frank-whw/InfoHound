@@ -5,7 +5,7 @@ export interface RawArticle {
   title: string;
   url: string;
   content?: string;
-  summary?: string;
+  description?: string;  // Original description/summary from source
   publishedAt: Date;
   source: string;
   sourceName: string;

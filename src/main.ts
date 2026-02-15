@@ -98,10 +98,10 @@ async function summarizeArticles(
             ...article,
             summary: {
               whyItMatters: `Article about ${article.title}`,
-              oneSentenceSummary: article.summary || article.title,
-              keyPoints: [article.summary || 'See original article'],
-              tags: [article.category],
-              level: 'advanced',
+              oneSentenceSummary: article.description || article.title,
+              keyPoints: [article.description || 'See original article'],
+              tags: [article.category as string],
+              level: 'advanced' as const,
             },
           };
         }

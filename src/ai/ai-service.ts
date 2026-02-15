@@ -45,7 +45,7 @@ abstract class BaseAIService implements AIService {
     return `You are a senior tech editor evaluating article quality.
 
 Article Title: ${article.title}
-Article Content: ${article.content?.slice(0, 8000) || article.summary || 'N/A'}
+Article Content: ${article.content?.slice(0, 8000) || article.description || 'N/A'}
 Source: ${article.sourceName}
 Category: ${article.category}
 
@@ -69,7 +69,7 @@ Respond in JSON format:
     return `Create a structured summary for this tech article.
 
 Title: ${article.title}
-Content: ${article.content?.slice(0, 10000) || article.summary || 'N/A'}
+Content: ${article.content?.slice(0, 10000) || article.description || 'N/A'}
 Source: ${article.sourceName}
 Quality Score: ${article.overallScore}/10
 
@@ -186,10 +186,10 @@ class AnthropicService extends BaseAIService {
   private getDefaultSummary(article: ArticleWithScore): ArticleSummary {
     return {
       whyItMatters: `Article about ${article.title}`,
-      oneSentenceSummary: article.summary || article.title,
-      keyPoints: [article.summary || 'See original article'],
-      tags: [article.category],
-      level: 'advanced',
+      oneSentenceSummary: article.description || article.title,
+      keyPoints: [article.description || 'See original article'],
+      tags: [article.category as string],
+      level: 'advanced' as const,
     };
   }
 }
@@ -257,10 +257,10 @@ class OpenAICompatibleService extends BaseAIService {
       logger.error(`Error summarizing article ${article.title}:`, error);
       return {
         whyItMatters: `Article about ${article.title}`,
-        oneSentenceSummary: article.summary || article.title,
-        keyPoints: [article.summary || 'See original article'],
-        tags: [article.category],
-        level: 'advanced',
+        oneSentenceSummary: article.description || article.title,
+        keyPoints: [article.description || 'See original article'],
+        tags: [article.category as string],
+        level: 'advanced' as const,
       };
     }
   }
