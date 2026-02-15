@@ -57,33 +57,60 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月15日星期日 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月15日星期日 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Vim 9.2 released</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Vim 9.2 modernizes a 30-year-old editor with significant scripting language improvements, better platform integration, and sensible default changes that reduce friction for new users while giving power users more tools.</div>
+      <div class="article-title">I Fixed Windows Native Development</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Windows native development has been trapped in a broken dependency model where developers become unpaid tech support for Microsoft's 50GB installer maze—this article shows how to escape that trap with a tool that brings Linux-like package management simplicity to MSVC.</div>
       <ul class="key-points">
-        <li>Vim9 scripting matures with native enums, generic functions, tuple data types, and protected _new() methods—demonstrated by AI-generated Battleship and puzzle games using GitHub Copilot</li><li>Modern platform support adds experimental Wayland UI/clipboard and XDG Base Directory compliance ($HOME/.config/vim), plus native Windows dark mode and vertical tabpanels</li><li>Diff mode improvements include the 'linematch' algorithm for better change alignment, 'diffanchors' for section-based diffing, and configurable inline highlighting (char/word/simple)</li><li>Long-standing defaults finally modernized: 'history' 50→200, 'backspace' now 'indent,eol,start', 'ruler' and 'showcmd' enabled by default, 'diffopt' adds closeoff/indent-heuristic/inline:char</li><li>Completion system upgrades add fuzzy matching (CTRL-X CTRL-R from registers), 'completeopt' flags (nosort, nearest), and built-in :Tutor plugin replacing vimtutor</li>
+        <li>Visual Studio's installer forces developers into 'human-powered dependency resolution'—contributors file GitHub issues about broken builds because they checked the wrong workload boxes or installed v143 instead of v142 build tools, with cryptic errors like MSB8101 appearing hours later.</li><li>The core architectural problem: Visual Studio conflates editor, compiler, and SDK into an unversioned monolith with no transparency—'you can't check your compiler into Git' and builds silently diverge across machines with slightly different versions.</li><li>msvcup exploits Microsoft's own JSON manifests (the same ones the official installer uses) to download only the essential compilation components—compiler, linker, headers, libraries—directly from Microsoft's CDN into isolated versioned directories under C:\msvcup\.</li><li>The `autoenv` command eliminates fragile vcvarsall.bat environment mutation by generating wrapper executables that set variables per-invocation; combined with lock files, this enables idempotent builds that complete in milliseconds after first install.</li><li>Real-world validation: Tuple (a pair-programming app) replaced their Visual Studio CI dependency with msvcup to compile hundreds of C/C++ projects including WebRTC, enabling both x86_64 and ARM cross-compilation without pre-installed tooling.</li>
       </ul>
-      <div class="tags"><span class="tag">Vim</span><span class="tag">CLI</span><span class="tag">Developer Tools</span><span class="tag">Linux</span></div>
-      <p><a href="https://www.vim.org/vim-9.2-released.php" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Windows</span><span class="tag">C/C++</span><span class="tag">DevOps</span><span class="tag">Tooling</span></div>
+      <p><a href="https://marler8997.github.io/blog/fixed-windows/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
+    
+    <div class="section">
+      <div class="section-title">🔥 深度技术</div>
+      
+    <div class="article tech-deep">
+      <div class="article-title">Fragments: February 13</div>
+      <div class="article-meta">来源: Martin Fowler · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article captures early consensus among senior technologists on how LLMs will reshape software engineering careers, team structures, and the hidden costs of AI adoption that executives aren't yet seeing.</div>
+      <ul class="key-points">
+        <li>Senior developers are shifting focus from syntax to architectural decisions and 'managing LLM agents' similarly to junior developers, with hands-on experimentation converting resisters—one-third of skeptical seniors became pro-LLM after forced practical use.</li><li>Junior developers may actually benefit from LLMs as 'always-available mentors,' while mid-level developers face the biggest challenge: they lack both the LLM-native fluency of juniors and the architectural judgment of seniors needed to drive agents effectively.</li><li>Margaret-Anne Storey's concept of 'cognitive debt'—the decay of shared system understanding—paralyzes teams faster than technical debt; Martin Fowler reframes this as 'ignorance' requiring explicit investment to pay down, applying to both humans and LLMs.</li>
+      </ul>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Software Engineering</span><span class="tag">Developer Experience</span><span class="tag">Team Dynamics</span></div>
+      <p><a href="https://martinfowler.com/fragments/2026-02-13.html" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
+      <div class="article-title">Vim 9.2 released</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Vim 9.2 modernizes a 30-year-old editor with native Wayland support, AI-ready scripting constructs, and sensible defaults that finally match modern UX expectations—making it relevant for developers who've avoided Vim due to configuration friction.</div>
+      <ul class="key-points">
+        <li>Vim9 scripting matures with Enums, Generic functions, and Tuples—enabling complex projects like a Battleship game and Number Puzzle built with GitHub Copilot assistance, demonstrating AI-tool compatibility</li><li>Experimental Wayland UI/clipboard support and XDG Base Directory compliance ($HOME/.config/vim) bring Vim in line with modern Linux desktop standards</li><li>New 'linematch' diff algorithm and 'diffanchors' option enable granular, section-based diff alignment with configurable inline highlighting (char/word/simple modes)</li>
+      </ul>
+      <div class="tags"><span class="tag">Vim</span><span class="tag">Editors</span><span class="tag">Linux</span><span class="tag">Developer Tools</span></div>
+      <p><a href="https://www.vim.org/vim-9.2-released.php" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    </div>
     
     <div class="section">
       <div class="section-title">🤖 AI & 研究</div>
       
     <div class="article ai">
       <div class="article-title">ALS stole this musician’s voice. AI let him sing again.</div>
-      <div class="article-meta">来源: MIT Technology Review · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates how AI voice cloning is moving beyond novelty to become genuinely life-changing assistive technology, preserving identity and creative expression for people facing degenerative diseases.</div>
+      <div class="article-meta">来源: MIT Technology Review · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates a profound human application of AI voice cloning—restoring creative identity and artistic expression to someone stripped of their physical capabilities by disease, not just enabling communication but preserving the essence of who they are.</div>
       <ul class="key-points">
-        <li>Darling was diagnosed with ALS at 29 and lost his ability to sing, speak, and play instruments by mid-2024; his last performance was in April 2024 when bandmates had to carry him on stage</li><li>ElevenLabs' voice cloning tool recreated his speaking voice from old audio snippets, and his singing voice from low-quality sources including 'videos on people's phones, shot in noisy pubs' and kitchen recordings</li><li>The tool typically requires ~10 minutes of clear audio, but worked with degraded sources; the resulting clone retains human imperfections like raspiness and slight pitch issues</li>
+        <li>Darling was diagnosed with ALS at 29 and by June 2024 had lost the ability to sing, speak, play instruments, and stand; his voice was cloned from low-quality snippets including noisy pub videos and kitchen recordings rather than studio audio</li><li>ElevenLabs' impact program provides free voice cloning licenses to people who lost their voices to ALS, head/neck cancer, or stroke—currently supporting 74 languages</li><li>The singing voice clone required creative workarounds: the AI captured Darling's natural rasp and slight pitch imperfections, making it sound authentically 'human' rather than polished</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Voice Cloning</span><span class="tag">Assistive Technology</span><span class="tag">Generative AI</span></div>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Voice Cloning</span><span class="tag">Accessibility</span><span class="tag">Generative AI</span></div>
       <p><a href="https://www.technologyreview.com/2026/02/13/1132913/als-stole-this-musicians-voice-ai-sing/" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -92,9 +119,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.1/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.2/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
       </table>
     </div>
 
