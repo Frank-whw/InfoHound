@@ -9,7 +9,8 @@
     "generate": "ts-node src/main.ts generate",
     "dev": "ts-node src/main.ts",
     "test": "jest",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src/**/*.ts",
+    "test:rss": "ts-node scripts/test-rss-sources.ts"
   },
   "keywords": [
     "news",
