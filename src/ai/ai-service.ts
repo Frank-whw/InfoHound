@@ -9,6 +9,8 @@ import {
 } from '../types';
 import { logger } from '../utils';
 
+export { AIService } from '../types';
+
 export interface AIConfig {
   provider: 'anthropic' | 'openai' | 'openrouter' | 'deepseek' | 'custom';
   apiKey: string;
