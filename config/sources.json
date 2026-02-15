@@ -1,0 +1,93 @@
+{
+  "sources": [
+    {
+      "id": "lobsters",
+      "name": "Lobste.rs",
+      "type": "rss",
+      "url": "https://lobste.rs/rss",
+      "category": "tech-deep",
+      "weight": 1.2,
+      "maxPerDay": 3,
+      "filter": {
+        "minScore": 10
+      }
+    },
+    {
+      "id": "ars-technica",
+      "name": "Ars Technica",
+      "type": "rss",
+      "url": "https://feeds.arstechnica.com/arstechnica/index",
+      "category": "tech-deep",
+      "weight": 1.0,
+      "maxPerDay": 2
+    },
+    {
+      "id": "product-hunt",
+      "name": "Product Hunt",
+      "type": "api",
+      "url": "https://api.producthunt.com/v2/api/graphql",
+      "category": "product",
+      "weight": 0.8,
+      "maxPerDay": 2
+    },
+    {
+      "id": "indie-hackers",
+      "name": "Indie Hackers",
+      "type": "rss",
+      "url": "https://www.indiehackers.com/feed",
+      "category": "product",
+      "weight": 1.0,
+      "maxPerDay": 2
+    },
+    {
+      "id": "papers-with-code",
+      "name": "Papers With Code",
+      "type": "rss",
+      "url": "https://paperswithcode.com/rss",
+      "category": "ai",
+      "weight": 1.1,
+      "maxPerDay": 2
+    },
+    {
+      "id": "mit-tech-review",
+      "name": "MIT Technology Review",
+      "type": "rss",
+      "url": "https://www.technologyreview.com/feed/",
+      "category": "ai",
+      "weight": 1.0,
+      "maxPerDay": 2
+    },
+    {
+      "id": "hackernews",
+      "name": "Hacker News",
+      "type": "api",
+      "url": "https://hacker-news.firebaseio.com/v0",
+      "category": "tech-deep",
+      "weight": 1.0,
+      "maxPerDay": 3,
+      "filter": {
+        "minScore": 100
+      }
+    },
+    {
+      "id": "ruanyf-weekly",
+      "name": "阮一峰科技爱好者周刊",
+      "type": "rss",
+      "url": "https://feeds.feedburner.com/ruanyifeng",
+      "category": "chinese",
+      "weight": 1.2,
+      "maxPerDay": 5
+    }
+  ],
+  "settings": {
+    "maxArticlesPerSource": 5,
+    "maxArticlesPerDay": 15,
+    "retentionDays": 15,
+    "categories": [
+      "tech-deep",
+      "product",
+      "ai",
+      "chinese"
+    ]
+  }
+}
