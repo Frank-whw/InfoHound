@@ -2,9 +2,9 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import pLimit from 'p-limit';
 
-import { loadConfig, getAnthropicApiKey, logger } from './utils';
+import { loadConfig, getAIConfig, logger } from './utils';
 import { createCollector } from './collectors';
-import { ClaudeService } from './ai';
+import { createAIService, AIService } from './ai';
 import { Orchestrator } from './orchestrator';
 import { NewsletterRenderer } from './renderer';
 import { RawArticle, ArticleWithScore, ArticleWithSummary } from './types';
@@ -38,7 +38,7 @@ async function fetchArticles(): Promise<RawArticle[]> {
 
 async function evaluateArticles(
   articles: RawArticle[],
-  aiService: ClaudeService
+  aiService: AIService
 ): Promise<ArticleWithScore[]> {
   const limit = pLimit(3); // Limit concurrent AI calls
 
@@ -79,7 +79,7 @@ async function evaluateArticles(
 
 async function summarizeArticles(
   articles: ArticleWithScore[],
-  aiService: ClaudeService
+  aiService: AIService
 ): Promise<ArticleWithSummary[]> {
   const limit = pLimit(3);
 
@@ -117,8 +117,8 @@ async function generateDigest() {
     logger.info('Starting InfoHound digest generation...');
 
     // Initialize services
-    const apiKey = getAnthropicApiKey();
-    const aiService = new ClaudeService(apiKey);
+    const aiConfig = getAIConfig();
+    const aiService = createAIService(aiConfig);
     const orchestrator = new Orchestrator();
     const renderer = new NewsletterRenderer();
 

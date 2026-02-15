@@ -33,6 +33,12 @@ jobs:
 
       - name: Generate digest
         env:
+          # New unified AI configuration (recommended)
+          AI_PROVIDER: ${{ secrets.AI_PROVIDER }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          # Legacy support (will be used if AI_API_KEY is not set)
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: npm run generate
 
