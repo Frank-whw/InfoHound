@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月17日星期二 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月17日星期二 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Study: Self-generated Agent Skills are useless</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This research challenges a core assumption in AI agent development—that models can self-improve by generating their own procedural knowledge—revealing that human-curated skills remain essential for reliable performance gains.</div>
+      <div class="article-title">Let's practice! (bsd.rd)</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Understanding bsd.rd's layered structure demystifies a critical OpenBSD rescue/install tool and reveals how the developers intentionally embedded documentation in the man page cross-references, making this a masterclass in self-directed systems learning.</div>
       <ul class="key-points">
-        <li>Curated Skills deliver substantial but uneven gains: +16.2pp average improvement, ranging from +4.5pp (Software Engineering) to +51.9pp (Healthcare), with 16 of 84 tasks actually showing performance degradation</li><li>Self-generated Skills completely fail: despite the intuition that models should craft their own helpful procedures, they provide no average benefit across 7,308 trajectories and 7 agent-model configurations</li><li>Focused beats comprehensive: Skills with just 2-3 targeted modules outperform lengthy documentation, suggesting precision matters more than coverage</li><li>Skills enable model efficiency: smaller models equipped with curated Skills can match larger models without them, offering a potential path to cost-effective deployment</li><li>The SkillsBench framework provides deterministic verifiers and 86 tasks across 11 domains, establishing a standard for measuring Skill effectiveness that was previously absent from the field</li>
+        <li>bsd.rd consists of four nested layers: gzip compression → ELF binary → embedded ramdisk space (3.59 MB) → FFS miniroot filesystem, each accessible with standard Unix tools</li><li>The OpenBSD developers designed a deliberate learning path through SEE ALSO links: rd(4) → rdsetroot(8) → vnconfig(8) → vnd(4), with each man page pointing to the next required tool</li><li>The miniroot contains a single 65KB install.sub ksh script that handles install, upgrade, and autoinstall modes by checking $0, demonstrating economy of design</li><li>The .profile generates version/architecture strings at runtime via sysctl rather than hardcoding, allowing the same miniroot image to work across releases</li><li>The complete installer toolbox fits in ~3.6MB with only essential binaries: fdisk/disklabel for partitioning, ftp for downloads, signify for verification, and installboot for boot sectors</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">LLM Agents</span><span class="tag">Benchmarking</span><span class="tag">Machine Learning</span></div>
-      <p><a href="https://arxiv.org/abs/2602.12670" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">OpenBSD</span><span class="tag">Systems</span><span class="tag">Filesystems</span><span class="tag">Kernel</span></div>
+      <p><a href="https://openbsdjumpstart.org/bsd.rd/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,25 +77,14 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Let's practice! (bsd.rd)</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Understanding bsd.rd's layered structure demystifies how OpenBSD's rescue/install environment works and shows admins how to modify it without rebooting, useful for custom installers or forensics.</div>
+      <div class="article-title">Browse code by meaning</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates a concrete alternative to chat-based AI tools that could fundamentally change how developers navigate codebases, moving from keyword search to semantic understanding without the friction of conversational interfaces.</div>
       <ul class="key-points">
-        <li>bsd.rd has three nested layers: gzip compression → ELF binary (kernel) → embedded FFS filesystem (miniroot), all of which can be peeled back without rebooting</li><li>The embedded ramdisk is exactly 3,768,320 bytes (~3.6MB) reserved via RAMDISK kernel option and accessed via rd(4) driver; extracted with rdsetroot -x</li><li>The miniroot's install.sub script (65KB) handles all three modes—install, upgrade, autoinstall—by checking $0, with version/architecture determined at runtime via sysctl for cross-release compatibility</li>
+        <li>The tool recursively clusters files by semantic similarity using spectral clustering (linear algebra-based, no manual tuning), handling up to ~10,000 files in minutes on a modern MacBook</li><li>A key UX breakthrough: labeling sibling clusters together rather than independently produces distinctive, non-generic names—earlier iterations produced multiple clusters all labeled 'type errors'</li><li>The 'homework' prompting technique improves label quality by asking the model to produce structured intermediate reasoning (overarchingTheme, distinguishingFeature) even though only the final label is used</li>
       </ul>
-      <div class="tags"><span class="tag">OpenBSD</span><span class="tag">Systems</span><span class="tag">Unix</span><span class="tag">Filesystems</span></div>
-      <p><a href="https://openbsdjumpstart.org/bsd.rd/" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">What your Bluetooth devices reveal</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Bluetooth is ubiquitously enabled on billions of devices yet most users remain unaware that passive scanning can reveal detailed behavioral patterns, physical routines, and social connections without ever connecting to their devices.</div>
-      <ul class="key-points">
-        <li>Passive Bluetooth scanning with a Raspberry Pi or laptop can detect: delivery vehicle patterns, neighbor daily routines, device correlations (phone + smartwatch), and precise presence/absence times without any connection attempt</li><li>Critical vulnerability WhisperPair (CVE-2025-36911) disclosed days prior affects hundreds of millions of audio devices, enabling remote hijacking, eavesdropping, and location tracking via Google's Find Hub network</li><li>Many devices lack disable options: hearing aids, pacemakers, fleet vehicles, pet GPS collars, and fitness equipment broadcast continuously regardless of user preference</li>
-      </ul>
-      <div class="tags"><span class="tag">Bluetooth</span><span class="tag">Privacy</span><span class="tag">Security</span><span class="tag">Surveillance</span></div>
-      <p><a href="https://blog.dmcc.io/journal/2026-bluetooth-privacy-bluehood/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Developer Tools</span><span class="tag">Information Retrieval</span><span class="tag">LLM</span></div>
+      <p><a href="https://haskellforall.com/2026/02/browse-code-by-meaning" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.8/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>8.1/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
