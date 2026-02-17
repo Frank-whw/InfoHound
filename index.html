@@ -57,15 +57,15 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月17日星期二 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月17日星期二 · 今日精选 1 篇 · 预计阅读 2 分钟</p>
 
     
     <div class="headline article tech-deep">
       <div class="article-title">Let's practice! (bsd.rd)</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Understanding bsd.rd's layered structure demystifies a critical OpenBSD rescue/install tool and reveals how the developers intentionally embedded documentation in the man page cross-references, making this a masterclass in self-directed systems learning.</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Understanding bsd.rd's layered structure enables OpenBSD admins to inspect, modify, and troubleshoot installation media without rebooting, turning a black-box rescue tool into a fully explorable system component.</div>
       <ul class="key-points">
-        <li>bsd.rd consists of four nested layers: gzip compression → ELF binary → embedded ramdisk space (3.59 MB) → FFS miniroot filesystem, each accessible with standard Unix tools</li><li>The OpenBSD developers designed a deliberate learning path through SEE ALSO links: rd(4) → rdsetroot(8) → vnconfig(8) → vnd(4), with each man page pointing to the next required tool</li><li>The miniroot contains a single 65KB install.sub ksh script that handles install, upgrade, and autoinstall modes by checking $0, demonstrating economy of design</li><li>The .profile generates version/architecture strings at runtime via sysctl rather than hardcoding, allowing the same miniroot image to work across releases</li><li>The complete installer toolbox fits in ~3.6MB with only essential binaries: fdisk/disklabel for partitioning, ftp for downloads, signify for verification, and installboot for boot sectors</li>
+        <li>bsd.rd has three nested layers: gzip compression → ELF kernel binary → embedded FFS filesystem (3.6 MB), each accessible with standard Unix tools without rebooting</li><li>The rdsetroot(8) utility extracts the miniroot (-x flag) and reports reserved space size (-s flag: 3,768,320 bytes / 3.59 MB), enabling round-trip modification of the ramdisk</li><li>The miniroot uses a single 65 KB install.sub ksh script that handles install/upgrade/autoinstall modes by checking $0, with runtime sysctl detection for cross-release compatibility</li><li>Minimal userspace contains only essential tools: fdisk/disklabel for partitioning, newfs for formatting, ftp for downloads, signify for verification, and installboot for bootability</li><li>The SEE ALSO chain in man pages (rd→rdsetroot→vnconfig→vnd) forms a documented learning path that mirrors the actual data structure traversal</li>
       </ul>
       <div class="tags"><span class="tag">OpenBSD</span><span class="tag">Systems</span><span class="tag">Filesystems</span><span class="tag">Kernel</span></div>
       <p><a href="https://openbsdjumpstart.org/bsd.rd/" target="_blank">阅读原文 →</a></p>
@@ -73,28 +73,12 @@
     
 
     
-    <div class="section">
-      <div class="section-title">🔥 深度技术</div>
-      
-    <div class="article tech-deep">
-      <div class="article-title">Browse code by meaning</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates a concrete alternative to chat-based AI tools that could fundamentally change how developers navigate codebases, moving from keyword search to semantic understanding without the friction of conversational interfaces.</div>
-      <ul class="key-points">
-        <li>The tool recursively clusters files by semantic similarity using spectral clustering (linear algebra-based, no manual tuning), handling up to ~10,000 files in minutes on a modern MacBook</li><li>A key UX breakthrough: labeling sibling clusters together rather than independently produces distinctive, non-generic names—earlier iterations produced multiple clusters all labeled 'type errors'</li><li>The 'homework' prompting technique improves label quality by asking the model to produce structured intermediate reasoning (overarchingTheme, distinguishingFeature) even though only the final label is used</li>
-      </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Developer Tools</span><span class="tag">Information Retrieval</span><span class="tag">LLM</span></div>
-      <p><a href="https://haskellforall.com/2026/02/browse-code-by-meaning" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    </div>
-    
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>8.1/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>1 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.4/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>2 分钟</strong></td></tr>
       </table>
     </div>
 
