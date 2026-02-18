@@ -57,17 +57,17 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月18日星期三 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月18日星期三 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
 
     
     <div class="headline article tech-deep">
       <div class="article-title">BarraCUDA Open-source CUDA compiler targeting AMD GPUs</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.4/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This represents a rare independent compiler engineering achievement that breaks NVIDIA's CUDA vendor lock-in by enabling direct compilation to AMD GPUs without LLVM or translation layers, potentially reshaping GPU compute accessibility.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.7/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> BarraCUDA demonstrates that NVIDIA's CUDA lock-in can be broken without LLVM's massive dependency chain, offering a 15,000-line alternative that compiles directly to AMD GPU machine code and threatens to expand GPU programming freedom across vendors.</div>
       <ul class="key-points">
-        <li>Built from scratch in C99 with no LLVM dependency—uses hand-written lexer, recursive descent parser, custom SSA-based IR (BIR), and ~1,700 lines of manual instruction selection to emit GFX11 binaries</li><li>Full compilation pipeline validated against llvm-objdump with zero decode failures, producing .hsaco ELF binaries that run natively on AMD GPUs without HIP translation or source modification</li><li>Supports substantial CUDA feature set: __global__/__device__ qualifiers, thread/block builtins, __shared__ memory (LDS), atomics, warp intrinsics (__shfl_sync, __ballot_sync), vector types, half precision, cooperative groups, and templates</li><li>Extreme engineering discipline: fixed-size pre-allocated arrays, no malloc in hot paths, no recursion, bounded loops—designed for reliability over convenience</li><li>Clean architecture enables multi-target expansion: IR is target-independent, with Tenstorrent (RISC-V AI accelerators) and Intel Arc already planned as next backends</li>
+        <li>Zero LLVM dependency: Unlike HIP or other CUDA-to-AMD solutions, BarraCUDA uses a custom pipeline (lexer → parser → BIR IR → instruction selection → binary encoding) with ~1,700 lines of hand-written AMDGPU instruction selection</li><li>Minimal codebase, maximal output: 15,117 lines of C99 produce working binaries for complex CUDA features including atomics, warp intrinsics (__shfl_sync, __ballot_sync), cooperative groups, __shared__ memory, templates, and half-precision floats</li><li>Validated correctness: All instruction encodings verified against llvm-objdump with zero decode failures; test suite covers 35+ kernels including tiled SGEMM, N-body simulation, and stress tests</li><li>Clean architecture enables expansion: Target-independent BIR IR with separated backend means adding Tenstorrent RISC-V AI accelerators or Intel Arc only requires new isel + emit pairs</li><li>Performance gaps acknowledged: Currently uses linear scan register allocation without instruction scheduling or optimizations—works correctly but 'isn't winning any benchmarks' yet</li>
       </ul>
-      <div class="tags"><span class="tag">GPU Computing</span><span class="tag">Compiler Engineering</span><span class="tag">Open Source</span><span class="tag">AMD</span></div>
+      <div class="tags"><span class="tag">GPU Computing</span><span class="tag">Compiler Engineering</span><span class="tag">CUDA</span><span class="tag">AMDGPU</span></div>
       <p><a href="https://github.com/Zaneham/BarraCUDA" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -77,25 +77,36 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
+      <div class="article-title">Claude Sonnet 4.6</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Sonnet 4.6 achieves near-Opus performance at 1/5th the cost, making frontier-level AI economically viable for production workloads that were previously too expensive.</div>
+      <ul class="key-points">
+        <li>Users preferred Sonnet 4.6 over Opus 4.5 (the previous flagship) 59% of the time, citing less overengineering, better instruction following, and fewer hallucinations; in Claude Code specifically, preference over Sonnet 4.5 reached 70%</li><li>Computer use capabilities improved dramatically: 94% score on insurance benchmark (highest tested), with human-level performance on complex spreadsheets and multi-step web forms, though prompt injection attacks remain a risk that Sonnet 4.6 resists better than 4.5</li><li>1M token context window enables entire codebase analysis; in Vending-Bench Arena (business simulation), Sonnet 4.6 developed a novel strategy of heavy early capacity investment followed by sharp profitability pivot, beating competitors decisively</li>
+      </ul>
+      <div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">Agentic AI</span><span class="tag">Enterprise Software</span></div>
+      <p><a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
       <div class="article-title">Vinyl Cache has left github</div>
       <div class="article-meta">来源: Lobste.rs · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This documents a major open-source infrastructure migration away from GitHub, offering practical insights for projects considering similar moves to self-hosted alternatives like Forgejo.</div>
+      <div class="article-summary"><strong>为什么重要:</strong> This documents a complete, operational playbook for migrating a major open-source project from GitHub to self-hosted infrastructure—rare transparency on the technical and procedural challenges of platform independence.</div>
       <ul class="key-points">
-        <li>URL transformation follows a sed pattern: `sed -e 's:github.com/varnish:code.vinyl-cache.org/vinyl-:; s:varnish:vinyl:'` with the main branch renamed from 'master' to 'main'</li><li>Account registration on the new Forgejo instance expires on 2026-02-18T19:51:32+01:00, after which existing users can invite others unless spam forces closure</li><li>A critical migration error occurred: pushing a new 'main' branch and deleting 'master' invalidated all pull requests based on master, requiring direct SQL fixes in Forgejo's database</li>
+        <li>Migration deadline: Account registration on new Forgejo instance expires 2026-02-18T19:51:32+01:00; after that, registration closes unless spam abuse forces earlier closure.</li><li>URL transformation follows strict rules: github.com/varnishcache/ → code.vinyl-cache.org/vinyl-cache/ and 'varnish' → 'vinyl' in project names; main branch renamed from 'master' to 'main'.</li><li>Critical migration error: Renaming master to main by push-and-delete invalidated all migrated pull requests with master as base; fixed via direct SQL manipulation on the self-hosted Forgejo database.</li>
       </ul>
-      <div class="tags"><span class="tag">DevOps</span><span class="tag">Open Source</span><span class="tag">Git</span><span class="tag">Infrastructure</span></div>
+      <div class="tags"><span class="tag">DevOps</span><span class="tag">Git</span><span class="tag">SelfHosting</span><span class="tag">OpenSource</span></div>
       <p><a href="https://vinyl-cache.org/organization/moving.html" target="_blank">阅读原文 →</a></p>
     </div>
     
     <div class="article tech-deep">
-      <div class="article-title">Show HN: AsteroidOS 2.0 – Nobody asked, we shipped anyway</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> AsteroidOS 2.0 represents one of the few viable open-source alternatives to proprietary smartwatch OSes, expanding support to 25+ watches while delivering features like Always-on-Display and mainline Linux kernel support that challenge the assumption that open hardware must lag behind commercial offerings.</div>
+      <div class="article-title">Bliki: Agentic Email</div>
+      <div class="article-meta">来源: Martin Fowler · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Senior leaders are adopting AI email agents without understanding how their gullibility combined with email's central role in identity security creates a catastrophic attack surface.</div>
       <ul class="key-points">
-        <li>Major UX additions include Always-on-Display, tilt-to-wake, palm-to-sleep, and a highly customizable QuickPanel with remorse timer-driven power off—features typically reserved for proprietary OSes</li><li>Hardware support expanded significantly: 17 fully supported watches added since 1.0 including Fossil Gen 4-6 (firefish/ray, triggerfish, hoki), OPPO Watch (beluga), and TicWatch Pro 3 (rover/rubyfish); 5 watches in new 'Experimental' tier due to bricking risks or instability</li><li>First mainline Linux kernel port achieved for Samsung Gear 2 (rinato), eliminating libhybris Android compatibility layer—a technical milestone for open smartwatch development</li>
+        <li>The 'Lethal Trifecta' (coined by Simon Willison): untrusted content + sensitive information + external communication creates maximum security risk</li><li>Password reset workflows through email make agents especially dangerous—attackers can socially engineer the AI to forward reset emails and delete evidence</li><li>One mitigation: sandbox agents with read-only access, no internet connectivity, and plain-text output for human review—trading capability for security</li>
       </ul>
-      <div class="tags"><span class="tag">Open Source</span><span class="tag">Embedded Linux</span><span class="tag">Wearables</span><span class="tag">Qt/QML</span></div>
-      <p><a href="https://asteroidos.org/news/2-0-release/index.html" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI Security</span><span class="tag">Agentic AI</span><span class="tag">Social Engineering</span><span class="tag">Identity Management</span></div>
+      <p><a href="https://martinfowler.com/bliki/AgenticEmail.html" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +114,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
       </table>
     </div>
 
