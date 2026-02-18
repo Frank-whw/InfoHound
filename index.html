@@ -57,66 +57,28 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月18日星期三 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
+    <p class="subtitle">2026年2月18日星期三 · 今日精选 1 篇 · 预计阅读 2 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">BarraCUDA Open-source CUDA compiler targeting AMD GPUs</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.7/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> BarraCUDA demonstrates that NVIDIA's CUDA lock-in can be broken without LLVM's massive dependency chain, offering a 15,000-line alternative that compiles directly to AMD GPU machine code and threatens to expand GPU programming freedom across vendors.</div>
-      <ul class="key-points">
-        <li>Zero LLVM dependency: Unlike HIP or other CUDA-to-AMD solutions, BarraCUDA uses a custom pipeline (lexer → parser → BIR IR → instruction selection → binary encoding) with ~1,700 lines of hand-written AMDGPU instruction selection</li><li>Minimal codebase, maximal output: 15,117 lines of C99 produce working binaries for complex CUDA features including atomics, warp intrinsics (__shfl_sync, __ballot_sync), cooperative groups, __shared__ memory, templates, and half-precision floats</li><li>Validated correctness: All instruction encodings verified against llvm-objdump with zero decode failures; test suite covers 35+ kernels including tiled SGEMM, N-body simulation, and stress tests</li><li>Clean architecture enables expansion: Target-independent BIR IR with separated backend means adding Tenstorrent RISC-V AI accelerators or Intel Arc only requires new isel + emit pairs</li><li>Performance gaps acknowledged: Currently uses linear scan register allocation without instruction scheduling or optimizations—works correctly but 'isn't winning any benchmarks' yet</li>
-      </ul>
-      <div class="tags"><span class="tag">GPU Computing</span><span class="tag">Compiler Engineering</span><span class="tag">CUDA</span><span class="tag">AMDGPU</span></div>
-      <p><a href="https://github.com/Zaneham/BarraCUDA" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-
-    
-    <div class="section">
-      <div class="section-title">🔥 深度技术</div>
-      
-    <div class="article tech-deep">
       <div class="article-title">Claude Sonnet 4.6</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Sonnet 4.6 achieves near-Opus performance at 1/5th the cost, making frontier-level AI economically viable for production workloads that were previously too expensive.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Claude Sonnet 4.6 represents a significant inflection point where mid-tier pricing now delivers frontier-level performance, making high-end AI capabilities economically viable for production workloads that previously required expensive Opus-class models.</div>
       <ul class="key-points">
-        <li>Users preferred Sonnet 4.6 over Opus 4.5 (the previous flagship) 59% of the time, citing less overengineering, better instruction following, and fewer hallucinations; in Claude Code specifically, preference over Sonnet 4.5 reached 70%</li><li>Computer use capabilities improved dramatically: 94% score on insurance benchmark (highest tested), with human-level performance on complex spreadsheets and multi-step web forms, though prompt injection attacks remain a risk that Sonnet 4.6 resists better than 4.5</li><li>1M token context window enables entire codebase analysis; in Vending-Bench Arena (business simulation), Sonnet 4.6 developed a novel strategy of heavy early capacity investment followed by sharp profitability pivot, beating competitors decisively</li>
+        <li>Performance breakthrough: Early users preferred Sonnet 4.6 over Opus 4.5 59% of the time, citing reduced 'laziness,' fewer hallucinations, and better instruction following—previously impossible at the $3/$15 per million token price point</li><li>Computer use leap: Achieved 94% on insurance benchmarks and human-level capability on complex spreadsheets/multi-step web forms, with major improvements in prompt injection resistance compared to Sonnet 4.5</li><li>Strategic reasoning demonstrated: In Vending-Bench Arena, Sonnet 4.6 independently developed a novel 'invest early, pivot to profit' strategy that outperformed competitors by timing capacity investments before profitability focus</li><li>Enterprise validation: Box measured 15 percentage point improvement in heavy reasoning Q&A; Rakuten AI reported 'genuinely surprising' iOS code quality with modern tooling selection; financial services saw significant answer match rate jumps</li><li>Infrastructure expansion: 1M token context window (beta) with context compaction, plus adaptive/extended thinking modes on the Developer Platform—enabling entire codebase analysis and long-horizon planning without cost increases</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">Agentic AI</span><span class="tag">Enterprise Software</span></div>
+      <div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">Agentic AI</span><span class="tag">Computer Use</span></div>
       <p><a href="https://www.anthropic.com/news/claude-sonnet-4-6" target="_blank">阅读原文 →</a></p>
     </div>
     
-    <div class="article tech-deep">
-      <div class="article-title">Vinyl Cache has left github</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This documents a complete, operational playbook for migrating a major open-source project from GitHub to self-hosted infrastructure—rare transparency on the technical and procedural challenges of platform independence.</div>
-      <ul class="key-points">
-        <li>Migration deadline: Account registration on new Forgejo instance expires 2026-02-18T19:51:32+01:00; after that, registration closes unless spam abuse forces earlier closure.</li><li>URL transformation follows strict rules: github.com/varnishcache/ → code.vinyl-cache.org/vinyl-cache/ and 'varnish' → 'vinyl' in project names; main branch renamed from 'master' to 'main'.</li><li>Critical migration error: Renaming master to main by push-and-delete invalidated all migrated pull requests with master as base; fixed via direct SQL manipulation on the self-hosted Forgejo database.</li>
-      </ul>
-      <div class="tags"><span class="tag">DevOps</span><span class="tag">Git</span><span class="tag">SelfHosting</span><span class="tag">OpenSource</span></div>
-      <p><a href="https://vinyl-cache.org/organization/moving.html" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">Bliki: Agentic Email</div>
-      <div class="article-meta">来源: Martin Fowler · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Senior leaders are adopting AI email agents without understanding how their gullibility combined with email's central role in identity security creates a catastrophic attack surface.</div>
-      <ul class="key-points">
-        <li>The 'Lethal Trifecta' (coined by Simon Willison): untrusted content + sensitive information + external communication creates maximum security risk</li><li>Password reset workflows through email make agents especially dangerous—attackers can socially engineer the AI to forward reset emails and delete evidence</li><li>One mitigation: sandbox agents with read-only access, no internet connectivity, and plain-text output for human review—trading capability for security</li>
-      </ul>
-      <div class="tags"><span class="tag">AI Security</span><span class="tag">Agentic AI</span><span class="tag">Social Engineering</span><span class="tag">Identity Management</span></div>
-      <p><a href="https://martinfowler.com/bliki/AgenticEmail.html" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    </div>
+
     
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>1 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.1/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>2 分钟</strong></td></tr>
       </table>
     </div>
 
