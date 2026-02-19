@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoHound - 2026年2月19日星期四</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #1a1a1a; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 30px; }
+    .headline { background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 24px 0; }
+    .section { margin: 32px 0; }
+    .section-title { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e9ecef; }
+    .article { margin: 20px 0; padding: 16px; border-left: 4px solid #dee2e6; }
+    .article.tech-deep { border-left-color: #2563eb; }
+    .article.product { border-left-color: #f59e0b; }
+    .article.ai { border-left-color: #8b5cf6; }
+    .article.chinese { border-left-color: #10b981; }
+    .article-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .article-meta { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+    .article-summary { font-size: 14px; color: #4b5563; margin-bottom: 12px; }
+    .key-points { margin: 12px 0; padding-left: 16px; }
+    .key-points li { margin: 4px 0; font-size: 14px; color: #374151; }
+    .level-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; }
+    .level-beginner { background: #d1fae5; color: #065f46; }
+    .level-advanced { background: #fef3c7; color: #92400e; }
+    .level-expert { background: #fee2e2; color: #991b1b; }
+    .tags { margin-top: 8px; }
+    .tag { display: inline-block; padding: 2px 8px; background: #f3f4f6; border-radius: 4px; font-size: 11px; color: #6b7280; margin-right: 4px; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .stats { background: #f8f9fa; padding: 16px; border-radius: 8px; margin-top: 24px; }
+    .stats table { width: 100%; font-size: 14px; }
+    .stats td { padding: 4px 0; }
+    .footer { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af; }
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📰 InfoHound</h1>
+    <p class="subtitle">2026年2月19日星期四 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+
+    
+    <div class="headline article tech-deep">
+      <div class="article-title">Bliki: Agentic Email</div>
+      <div class="article-meta">来源: Martin Fowler · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Agentic email systems are being adopted by senior leaders without adequate security safeguards, creating a ticking time bomb for account takeovers and data breaches.</div>
+      <ul class="key-points">
+        <li>The 'Lethal Trifecta' (coined by Simon Willison): untrusted content + sensitive information + external communication creates a critical security vulnerability in agentic systems</li><li>Password reset workflows through email make agents especially dangerous—attackers can socially engineer the agent itself to intercept account recovery flows</li><li>One mitigation approach: sandbox agents with read-only email access, no internet connectivity, and human review of drafted responses in plain text (eliminating one leg of the trifecta)</li><li>Real exploit demonstrated: William Peltomäki showed how a single email turned his clawdbot into a data leak</li><li>Current false sense of security: no major breaches reported yet, but attack surface is expanding rapidly as senior/powerful users adopt these tools</li>
+      </ul>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Security</span><span class="tag">Agentic AI</span><span class="tag">Social Engineering</span></div>
+      <p><a href="https://martinfowler.com/bliki/AgenticEmail.html" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+
+    
+    <div class="section">
+      <div class="section-title">🔥 深度技术</div>
+      
+    <div class="article tech-deep">
+      <div class="article-title">15 years of FP64 segmentation, and why the Blackwell Ultra breaks the pattern</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.4/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reveals how the AI boom is fundamentally reshaping GPU market segmentation, with enterprise hardware now abandoning the FP64 advantage that justified 20x price premiums for 15 years.</div>
+      <ul class="key-points">
+        <li>FP64:FP32 ratio on consumer GPUs degraded from 1:8 (Fermi 2010) to 1:64 (Ampere 2020/RTX 5090), while absolute FP64 performance only grew 9.65x vs 77.63x for FP32 over 15 years</li><li>Enterprise-to-consumer GPU price ratio widened from ~5x (2010) to over 20x (2022), with FP64 serving as the primary technical differentiator alongside ECC memory and NVLink</li><li>Nvidia's 2017 GeForce EULA datacenter restriction marked an unprecedented shift from implicit technical segmentation to explicit contractual market division</li>
+      </ul>
+      <div class="tags"><span class="tag">GPU Architecture</span><span class="tag">AI Hardware</span><span class="tag">Market Segmentation</span><span class="tag">HPC</span></div>
+      <p><a href="https://nicolasdickenmann.com/blog/the-great-fp64-divide.html" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    </div>
+    
+
+    <div class="stats">
+      <table>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.5/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="footer">
+      <p>由 <a href="https://github.com/Frank-whw/InfoHound">InfoHound</a> 自动生成 · AI 整理，人工阅读</p>
+    </div>
+  </div>
+</body>
+</html>
