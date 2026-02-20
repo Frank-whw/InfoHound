@@ -61,14 +61,14 @@
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Show HN: Micasa – track your house from the terminal</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Home maintenance data is typically scattered across cloud apps, spreadsheets, and physical shoeboxes—Micasa offers a privacy-respecting, offline-first alternative that developers can actually stick with because it lives in their terminal.</div>
+      <div class="article-title">MuMu Player (NetEase) silently runs 17 reconnaissance commands every 30 minutes</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> A widely-used Android emulator is performing covert surveillance-level data collection on macOS users every 30 minutes, including network scans, process monitoring, and hardware fingerprinting—all undisclosed in its privacy policy.</div>
       <ul class="key-points">
-        <li>Architecture: Single SQLite file stores everything including attached documents (manuals, invoices, photos), enabling simple backups via cp—no network calls, no vendor lock-in, no subscription fatigue</li><li>Feature coverage: Tracks 7 core domains—maintenance schedules with auto-computed due dates, projects from concept to completion/abandonment, incidents with severity/location, appliance warranty status, vendor history with quote comparisons, and document attachments</li><li>Interface design: Vim-style modal keybindings (nav/edit modes), fuzzy search, column sorting/hiding, and drill-down navigation inspired by VisiData—optimized for developers who already live in terminals</li><li>Distribution: Go 1.25+ source install or prebuilt binaries for Linux/macOS/Windows on amd64/arm64; includes --demo flag for 30-second evaluation without setup</li><li>Philosophy: Explicit rejection of SaaS patterns—'No cloud. No account. No subscriptions'—positioned as permanent personal infrastructure rather than recurring cost</li>
+        <li>Comprehensive data collection: 17 commands run automatically including `arp -a` (all network devices), `ps aux` (every running process with full arguments), `cat /etc/hosts`, `sysctl -a` (kernel parameters), and full application inventory via `mdls`—generating ~400KB per collection</li><li>Critical privacy exposure: Process lists capture VPN configurations, session tokens in command-line arguments, development environments, security tools, and user directory paths—creating a behavioral timeline exploitable for targeting or evasion</li><li>Persistent hardware tracking: Mac serial numbers are harvested and used as immutable identifiers via SensorsData analytics, combined with campaign tracking (UTM sources, player versions) in an 86KB message queue</li><li>Transparency failure: None of the 30-minute scheduled collections—network enumeration, process monitoring, hosts file reading—are mentioned in MuMu's published privacy policy</li><li>Verification is trivial: Users can confirm the activity by checking `~/Library/Application Support/com.netease.mumu.nemux-global/logs/` for timestamped directories containing raw command outputs</li>
       </ul>
-      <div class="tags"><span class="tag">CLI</span><span class="tag">SQLite</span><span class="tag">Local-First</span><span class="tag">TUI</span></div>
-      <p><a href="https://micasa.dev" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">Privacy</span><span class="tag">macOS</span><span class="tag">Reverse Engineering</span></div>
+      <p><a href="https://gist.github.com/interpiduser5/547d8a7baec436f24b7cce89dd4ae1ea" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,7 +77,7 @@
     <div class="stats">
       <table>
         <tr><td>文章总数</td><td><strong>1 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7/10</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.1/10</strong></td></tr>
         <tr><td>预计阅读时间</td><td><strong>2 分钟</strong></td></tr>
       </table>
     </div>
