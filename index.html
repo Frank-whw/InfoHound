@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoHound - 2026年2月20日星期五</title>
+  <title>InfoHound - 2026年2月21日星期六</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月20日星期五 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月21日星期六 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Hold on to Your Hardware</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> The article signals a permanent structural collapse of affordable consumer computing, driven by AI data center demand monopolizing global hardware production—making personal tech ownership increasingly inaccessible and shifting control to corporate cloud infrastructure.</div>
+      <div class="article-title">Turn Dependabot Off</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.9/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Dependabot's noisy alerts create alert fatigue that actually reduces security by drowning real vulnerabilities in false positives, while smarter tools like govulncheck use static analysis to eliminate this waste.</div>
       <ul class="key-points">
-        <li>The 'RAM-pocalypse' reflects a structural, not cyclical, shift: Micron's exit from the consumer market leaves only Samsung and SK Hynix controlling RAM/SSD supply, with Western Digital deriving just 5% of revenue from consumers and 89% from enterprise/cloud clients.</li><li>OpenAI's Stargate project alone consumes ~900,000 DRAM wafers monthly (~40% of global output), while hyperscalers have secured 70% of all 2026 memory chip production through open-ended purchase orders extending to 2027-2028.</li><li>Cascading collateral damage includes: Steam Deck OLED intermittent stockouts with no US/Canada availability; Raspberry Pi 5 (16GB) price spike from $120 to $205 (70% increase) in three months; PS6 delayed to 2028-2029; Switch 2 price increase under consideration.</li><li>Manufacturing prepayment demands now extend three years in advance, locking out smaller players—Phison warns NAND shortages could persist until 2030 and risk 'destruction' of entire consumer electronics segments.</li><li>HP's laptop subscription launch amid this crisis exemplifies a broader trajectory toward 'rented compute' futures where users never own hardware, accelerating erosion of technological independence.</li>
+        <li>Dependabot generated thousands of PRs for a filippo.io/edwards25519 vulnerability affecting only the unused (*Point).MultiScalarMult method, even flagging repos like Wycheproof that only imported the unaffected sub-package filippo.io/edwards25519/field</li><li>govulncheck uses the Go Vulnerability Database's rich metadata (version, package, symbol) and static analysis to filter alerts by actual reachability—correctly reporting 'No vulnerabilities found' when the vulnerable symbol isn't callable</li><li>The Go Vulnerability Database includes per-symbol vulnerability data (e.g., 'Point.MultiScalarMult' specifically) enabling precise filtering that module-level scanners miss</li><li>Running CI with 'go get -u -t ./...' daily captures breakage detection benefits without forcing immediate updates, letting teams update on their own schedule while maintaining security readiness</li><li>Alert fatigue from false positives causes teams to treat all alerts as routine dependency bumps, making proper security response (production updates, secret rotation, user notification) impractical when real vulnerabilities occur</li>
       </ul>
-      <div class="tags"><span class="tag">Hardware</span><span class="tag">AI</span><span class="tag">Supply Chain</span><span class="tag">Consumer Tech</span></div>
-      <p><a href="https://マリウス.com/hold-on-to-your-hardware/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">Go</span><span class="tag">DevOps</span><span class="tag">Dependency Management</span></div>
+      <p><a href="https://words.filippo.io/dependabot/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,25 +77,14 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Consistency diffusion language models: Up to 14x faster, no quality loss</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This research could fundamentally shift the efficiency landscape for large language models by making diffusion-based generation competitive with autoregressive models while preserving unique capabilities like text infilling.</div>
+      <div class="article-title">"Made in EU" - it was harder than I thought</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article provides a rare practical roadmap for building on European infrastructure, exposing hidden friction points that most 'cloud exit' discussions gloss over.</div>
       <ul class="key-points">
-        <li>CDLM achieves 14.5x latency speedup on MBPP-Instruct and 11.2x on GSM8K-CoT through 4.1x–7.7x reduction in refinement steps, with minimal accuracy degradation</li><li>The method solves two critical DLM bottlenecks: incompatibility with KV caching (via block-wise causal attention) and high step counts (via consistency training on trajectories)</li><li>Three-part training objective: distillation loss for newly unmasked positions, consistency loss for stable multi-step transitions, and auxiliary masked-denoising to preserve reasoning</li>
+        <li>The final stack: Hetzner (compute), Scaleway (email, registry, observability), Bunny.net (CDN/DNS), Nebius (GPU inference), Hanko (auth), plus self-hosted Gitea, Plausible, Twenty CRM, Infisical, and Bugsink on Kubernetes with Rancher.</li><li>Unexpected pain points: EU transactional email lacks ecosystem depth vs. Sendgrid/Postmark, leaving GitHub means rebuilding CI/CD and losing social integrations, and certain TLDs cost 2-3x more through European registrars with no clear explanation.</li><li>Unavoidable American dependencies: Google Ads and Apple Developer Program for user acquisition/distribution, social login OAuth flows (Google/Apple) for conversion optimization, and frontier AI models like Claude requiring transatlantic API calls.</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">LLM</span><span class="tag">Diffusion Models</span><span class="tag">Inference Optimization</span></div>
-      <p><a href="https://www.together.ai/blog/consistency-diffusion-language-models" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">Defer available in gcc and clang</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> The `defer` statement—long available in Go and Rust—is finally coming to C via standardized compiler support, eliminating entire classes of resource leaks and cleanup bugs without runtime overhead.</div>
-      <ul class="key-points">
-        <li>TS 25755 (edited by JeanHeyd Meneide) is complete and moving through ISO publication; GCC and Clang have implemented the feature</li><li>Clang 22+ supports `defer` natively with `-fdefer-ts`; GCC uses a `__cleanup__` attribute-based polyfill that works back to GCC 9</li><li>The GCC fallback uses nested functions but compiles to zero runtime overhead—no trampolines or executable stack pages even at `-O0`</li>
-      </ul>
-      <div class="tags"><span class="tag">C</span><span class="tag">Systems Programming</span><span class="tag">Memory Management</span><span class="tag">Compiler Features</span></div>
-      <p><a href="https://gustedt.wordpress.com/2026/02/15/defer-available-in-gcc-and-clang/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Infrastructure</span><span class="tag">Cloud</span><span class="tag">GDPR</span><span class="tag">Self-Hosting</span></div>
+      <p><a href="https://www.coinerella.com/made-in-eu-it-was-harder-than-i-thought/" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
         <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
