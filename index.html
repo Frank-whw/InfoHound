@@ -57,17 +57,17 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月21日星期六 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月21日星期六 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
 
     
     <div class="headline article tech-deep">
       <div class="article-title">Turn Dependabot Off</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.9/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Dependabot's noisy alerts create alert fatigue that actually reduces security by drowning real vulnerabilities in false positives, while smarter tools like govulncheck use static analysis to eliminate this waste.</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Dependabot's false-positive-heavy alerts create alert fatigue that actually reduces security by drowning real vulnerabilities in noise, while better alternatives like govulncheck use static analysis to only flag genuinely reachable vulnerabilities.</div>
       <ul class="key-points">
-        <li>Dependabot generated thousands of PRs for a filippo.io/edwards25519 vulnerability affecting only the unused (*Point).MultiScalarMult method, even flagging repos like Wycheproof that only imported the unaffected sub-package filippo.io/edwards25519/field</li><li>govulncheck uses the Go Vulnerability Database's rich metadata (version, package, symbol) and static analysis to filter alerts by actual reachability—correctly reporting 'No vulnerabilities found' when the vulnerable symbol isn't callable</li><li>The Go Vulnerability Database includes per-symbol vulnerability data (e.g., 'Point.MultiScalarMult' specifically) enabling precise filtering that module-level scanners miss</li><li>Running CI with 'go get -u -t ./...' daily captures breakage detection benefits without forcing immediate updates, letting teams update on their own schedule while maintaining security readiness</li><li>Alert fatigue from false positives causes teams to treat all alerts as routine dependency bumps, making proper security response (production updates, secret rotation, user notification) impractical when real vulnerabilities occur</li>
+        <li>Dependabot generated thousands of PRs for a filippo.io/edwards25519 vulnerability affecting only the unused (*Point).MultiScalarMult method, even flagging repos like Wycheproof that only imported the unaffected field subpackage</li><li>The Go Vulnerability Database includes rich metadata (version, package, symbol) enabling precise filtering; govulncheck uses static analysis to determine if vulnerable code is actually reachable, returning 'No vulnerabilities found' when the symbol isn't called</li><li>Alert fatigue from false positives causes teams to treat all alerts as routine dependency bumps, preventing proper impact assessment (production updates, secret rotation, user notification) for real vulnerabilities</li><li>Scheduled CI running 'go get -u -t ./...' before tests captures breakage detection benefits without forcing immediate updates, letting teams control when to actually bump dependencies</li><li>Noisy scanners externalize costs to open source maintainers who receive spurious update demands; the author, as former Go Security Team lead, invested in govulncheck specifically to solve this systemic problem</li>
       </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">Go</span><span class="tag">DevOps</span><span class="tag">Dependency Management</span></div>
+      <div class="tags"><span class="tag">Security</span><span class="tag">Go</span><span class="tag">DevOps</span><span class="tag">Supply Chain</span></div>
       <p><a href="https://words.filippo.io/dependabot/" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -77,14 +77,25 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">"Made in EU" - it was harder than I thought</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article provides a rare practical roadmap for building on European infrastructure, exposing hidden friction points that most 'cloud exit' discussions gloss over.</div>
+      <div class="article-title">I found a Vulnerability. They found a Lawyer</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This case exposes how organizations often punish rather than reward security researchers, revealing systemic failures in vulnerability disclosure culture that ultimately leaves user data—including children's—at risk.</div>
       <ul class="key-points">
-        <li>The final stack: Hetzner (compute), Scaleway (email, registry, observability), Bunny.net (CDN/DNS), Nebius (GPU inference), Hanko (auth), plus self-hosted Gitea, Plausible, Twenty CRM, Infisical, and Bugsink on Kubernetes with Rancher.</li><li>Unexpected pain points: EU transactional email lacks ecosystem depth vs. Sendgrid/Postmark, leaving GitHub means rebuilding CI/CD and losing social integrations, and certain TLDs cost 2-3x more through European registrars with no clear explanation.</li><li>Unavoidable American dependencies: Google Ads and Apple Developer Program for user acquisition/distribution, social login OAuth flows (Google/Apple) for conversion optimization, and frontier AI models like Claude requiring transatlantic API calls.</li>
+        <li>The vulnerability was trivial: incrementing numeric user IDs (XXXXXX0, XXXXXXX1, etc.) combined with a static default password never enforced to be changed, allowing access to full profiles including 14-year-old students' names, addresses, emails, and phone numbers with no rate limiting, lockouts, or MFA.</li><li>The researcher followed Malta's National Coordinated Vulnerability Disclosure Policy by reporting to both CSIRT Malta and the organization directly with a 30-day embargo, offering technical assistance and receiving a legal threat in return.</li><li>The organization's law firm explicitly criticized the researcher for 'notifying the authorities prior to contacting the Group' and threatened criminal prosecution under Maltese law for the 'threat to make this matter public.'</li>
       </ul>
-      <div class="tags"><span class="tag">Infrastructure</span><span class="tag">Cloud</span><span class="tag">GDPR</span><span class="tag">Self-Hosting</span></div>
-      <p><a href="https://www.coinerella.com/made-in-eu-it-was-harder-than-i-thought/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">Responsible Disclosure</span><span class="tag">GDPR</span><span class="tag">Authentication</span></div>
+      <p><a href="https://dixken.de/blog/i-found-a-vulnerability-they-found-a-lawyer" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
+      <div class="article-title">Brat, a parallel TAP testing harness for the POSIX shell</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Brat solves the common pain point of slow shell test suites by offering built-in parallel execution without external dependencies, while remaining readable enough to understand in an afternoon.</div>
+      <ul class="key-points">
+        <li>Zero dependencies: Runs on POSIX.1-2024 with only shell and awk, tested on Alpine (busybox), Debian (dash/mawk), Fedora (bash/gawk), FreeBSD, and macOS</li><li>Built-in parallel execution via -j flag or $BRAT_JOBS environment variable, using FIFOs instead of requiring GNU parallel</li><li>Different output model from Bats: captures to $stdout/$stderr file paths rather than $output/$lines strings, avoiding memory overhead with large outputs</li>
+      </ul>
+      <div class="tags"><span class="tag">Testing</span><span class="tag">POSIX</span><span class="tag">Shell</span><span class="tag">DevOps</span></div>
+      <p><a href="https://codeberg.org/sstephenson/brat" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -92,9 +103,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
 
