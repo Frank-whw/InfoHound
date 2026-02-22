@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InfoHound - 2026年2月22日星期日</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 { color: #1a1a1a; font-size: 28px; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 14px; margin-bottom: 30px; }
+    .headline { background: #f8f9fa; padding: 24px; border-radius: 8px; margin: 24px 0; }
+    .section { margin: 32px 0; }
+    .section-title { font-size: 20px; color: #1a1a1a; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 2px solid #e9ecef; }
+    .article { margin: 20px 0; padding: 16px; border-left: 4px solid #dee2e6; }
+    .article.tech-deep { border-left-color: #2563eb; }
+    .article.product { border-left-color: #f59e0b; }
+    .article.ai { border-left-color: #8b5cf6; }
+    .article.chinese { border-left-color: #10b981; }
+    .article-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .article-meta { font-size: 12px; color: #6b7280; margin-bottom: 8px; }
+    .article-summary { font-size: 14px; color: #4b5563; margin-bottom: 12px; }
+    .key-points { margin: 12px 0; padding-left: 16px; }
+    .key-points li { margin: 4px 0; font-size: 14px; color: #374151; }
+    .level-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 8px; }
+    .level-beginner { background: #d1fae5; color: #065f46; }
+    .level-advanced { background: #fef3c7; color: #92400e; }
+    .level-expert { background: #fee2e2; color: #991b1b; }
+    .tags { margin-top: 8px; }
+    .tag { display: inline-block; padding: 2px 8px; background: #f3f4f6; border-radius: 4px; font-size: 11px; color: #6b7280; margin-right: 4px; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .stats { background: #f8f9fa; padding: 16px; border-radius: 8px; margin-top: 24px; }
+    .stats table { width: 100%; font-size: 14px; }
+    .stats td { padding: 4px 0; }
+    .footer { text-align: center; margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #9ca3af; }
+    @media (max-width: 600px) {
+      body { padding: 10px; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📰 InfoHound</h1>
+    <p class="subtitle">2026年2月22日星期日 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+
+    
+    <div class="headline article tech-deep">
+      <div class="article-title">Show HN: Llama 3.1 70B on a single RTX 3090 via NVMe-to-GPU bypassing the CPU</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.1/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This achieves what was thought impossible—running a 70B parameter LLM on consumer hardware with 24GB VRAM—by bypassing CPU bottlenecks entirely and streaming layers directly from NVMe to GPU, opening frontier AI to individuals without enterprise infrastructure.</div>
+      <ul class="key-points">
+        <li>83x speedup over baseline: mmap streaming achieved 0.006 tok/s due to page cache thrashing (53GB > 48GB RAM), while tiered caching with layer skip reaches 0.5 tok/s—comparable to cloud API latency for many use cases.</li><li>PCIe Gen3 x8 is the bottleneck at ~6.5 GB/s: Q4_K_M quantization fits 10 more layers in VRAM (36 vs 26) than Q6_K, reducing tier B transfers and yielding 50% faster inference (0.3 vs 0.2 tok/s) despite lower precision.</li><li>NVMe direct I/O eliminates CPU entirely: uses userspace VFIO driver with GPU MMIO writes to NVMe controller registers, reading 670MB layers in ~202ms via DMA to pinned GPU-accessible memory—requires disabling IOMMU and patching NVIDIA DKMS for kernel 6.12+.</li><li>Layer skip via cosine similarity: skips 20 of 80 layers per token at threshold 0.98 with 'minimal quality loss,' providing 67% speedup (0.3 → 0.5 tok/s) for 70B models without retraining or auxiliary draft models.</li><li>Zero external dependencies: pure C++/CUDA implementation without PyTorch or cuBLAS, enabling 48.9 tok/s for 8B models resident in VRAM—competitive with optimized frameworks while being radically more deployable.</li>
+      </ul>
+      <div class="tags"><span class="tag">LLM Inference</span><span class="tag">CUDA</span><span class="tag">NVMe Direct I/O</span><span class="tag">Quantization</span></div>
+      <p><a href="https://github.com/xaskasdf/ntransformer" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+
+    
+    <div class="section">
+      <div class="section-title">🔥 深度技术</div>
+      
+    <div class="article tech-deep">
+      <div class="article-title">How I use Claude Code: Separation of planning and execution</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article presents a battle-tested workflow for AI-assisted coding that solves the #1 failure mode of AI tools: building the wrong thing well through rigorous planning before execution.</div>
+      <ul class="key-points">
+        <li>The core principle is 'never let Claude write code until you've reviewed and approved a written plan'—this separation prevents implementations that work in isolation but break surrounding systems (e.g., ignoring caching layers, duplicating logic, violating ORM conventions).</li><li>Research phase requires 'deep-read' directives with explicit language ('deeply', 'intricacies') and mandatory written artifacts (research.md) that serve as review surfaces to verify understanding before any planning occurs.</li><li>The 'Annotation Cycle' is the distinctive value-add: the author reviews plan.md in their editor, adds inline notes correcting assumptions or injecting domain knowledge, and sends Claude back for 1-6 refinement rounds with explicit 'don't implement yet' guards.</li>
+      </ul>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Software Engineering</span><span class="tag">Developer Tools</span><span class="tag">Workflow Design</span></div>
+      <p><a href="https://boristane.com/blog/how-i-use-claude-code/" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    </div>
+    
+
+    <div class="stats">
+      <table>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>8.1/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+      </table>
+    </div>
+
+    <div class="footer">
+      <p>由 <a href="https://github.com/Frank-whw/InfoHound">InfoHound</a> 自动生成 · AI 整理，人工阅读</p>
+    </div>
+  </div>
+</body>
+</html>
