@@ -61,14 +61,14 @@
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">codespelunker - CLI code search tool that understands code structure and ranks results by relevance. No indexing required</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Developers waste hours sifting through irrelevant grep results; cs eliminates that friction by ranking code by actual relevance without the operational burden of maintaining a search index.</div>
+      <div class="article-title">I built Timeframe, our family e-paper dashboard</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article demonstrates a decade-long journey of refining a hardware-software solution through iterative prototyping, revealing how constraints like e-paper's slow refresh rate shaped product design and how real-world disasters can unexpectedly accelerate innovation.</div>
       <ul class="key-points">
-        <li>Structural awareness distinguishes code (weight 1.0), strings (0.5), and comments (0.2), with filters like --only-declarations to jump directly to function definitions across 25+ languages</li><li>Complexity gravity (--gravity=brain with strength 2.5) surfaces dense implementation files over interfaces/configs by using cyclomatic complexity as a ranking signal</li><li>Performance benchmark: searches and ranks the entire Linux kernel in ~6 seconds on Apple Silicon M1 despite full lexical analysis per file</li><li>Multiple interfaces beyond CLI: TUI mode (cs), HTTP server with syntax highlighting (cs -d), and MCP server for LLM integration</li><li>Deduplication (--dedup) collapses byte-identical matches to handle vendored/copied code, addressing a common pain point in large codebases</li>
+        <li>Initial prototypes failed: LCD 'Magic Mirror' was unreadable in Colorado's natural light and glowed distractingly at night; jailbroken Kindles required constant maintenance and only updated every 30 minutes due to slow e-ink refresh.</li><li>Visionect's 6"/10"/13" displays ran 2-3 months on single charge but cost $1000+ in 2019, with vendor later adding $7/month per-device SaaS fees that killed commercial viability.</li><li>The 2021 Marshall Fire destroying the author's home became an unexpected pivot point, enabling ground-up redesign to incorporate Boox's 25.3" Mira Pro ($2000) — the first large high-resolution realtime e-paper display.</li><li>Realtime requirements forced architectural changes: eliminated IMGKit PNG generation, removed database and Redis, switched to Rufus Scheduler with file store cache, and migrated data sources to Home Assistant reducing codebase by 50%+.</li><li>Key UX insight: separating device control from status display allows 'negative space' design — blank screen means healthy state, eliminating cognitive load of scanning entire smart home dashboards.</li>
       </ul>
-      <div class="tags"><span class="tag">Developer Tools</span><span class="tag">CLI</span><span class="tag">Code Search</span><span class="tag">Information Retrieval</span></div>
-      <p><a href="https://github.com/boyter/cs" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">IoT</span><span class="tag">Home Assistant</span><span class="tag">Embedded Systems</span><span class="tag">UX Design</span></div>
+      <p><a href="https://hawksley.org/2026/02/17/timeframe.html" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,25 +77,25 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Read Locks Are Not Your Friends</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Challenges a deeply-held assumption in concurrent programming that read locks always outperform write locks, revealing how hardware-level cache contention can make RwLock 5× slower than Mutex for short operations.</div>
+      <div class="article-title">codespelunker - CLI code search tool that understands code structure and ranks results by relevance. No indexing required</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> cs bridges the gap between blazing-fast CLI search tools and intelligent IDE-style search without the maintenance burden of indexes, solving the universal developer pain of drowning in irrelevant grep results.</div>
       <ul class="key-points">
-        <li>RwLock was ~5× slower than Mutex for a read-heavy LRU tensor cache workload on Apple M4, contrary to conventional wisdom</li><li>The hidden cost: every .read() performs an atomic write to increment an internal reader counter, causing cache-line invalidation storms across cores</li><li>Write locks paradoxically reduce bus contention by serializing access, preventing the 'stampede' of cores fighting to modify the same atomic counter simultaneously</li>
+        <li>Structural awareness: parses files on-the-fly to distinguish code (1.0 weight), strings (0.5), and comments (0.2), with flags like --only-declarations to jump directly to function definitions across 25+ languages</li><li>Complexity gravity ranking: uses cyclomatic complexity to boost complex implementation files over interfaces/configs (--gravity=brain for 2.5x boost, --gravity=low for 0.2x)</li><li>Performance benchmark: searches and ranks the entire Linux kernel source in ~6 seconds on Apple Silicon M1 despite full lexical analysis per file</li>
       </ul>
-      <div class="tags"><span class="tag">Concurrency</span><span class="tag">Rust</span><span class="tag">Performance</span><span class="tag">Systems</span></div>
-      <p><a href="https://eventual-consistency.vercel.app/posts/write-locks-faster" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Developer Tools</span><span class="tag">CLI</span><span class="tag">Code Search</span><span class="tag">Information Retrieval</span></div>
+      <p><a href="https://github.com/boyter/cs" target="_blank">阅读原文 →</a></p>
     </div>
     
     <div class="article tech-deep">
-      <div class="article-title">I built Timeframe, our family e-paper dashboard</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This is a rare deep-dive into a decade-long hardware/software project that reveals how constraints (e-paper limitations, real-time requirements, home destruction) forced architectural decisions that ultimately produced a more elegant, maintainable system.</div>
+      <div class="article-title">Drowse: Nix dynamic derivations made easy</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.3/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Drowse solves a real pain point in the Nix ecosystem by eliminating the trade-off between slow evaluation (IFD) and messy code generation for tools like crate2nix, using an under-documented experimental feature.</div>
       <ul class="key-points">
-        <li>E-paper's key advantage isn't just low power—it's 'unobtrusive regardless of lighting,' solving the 'glowing screen' problem that made LCD/OLED unsuitable for living spaces; the author tested Magic Mirror (LCD), jailbroken Kindles (2-3 second refresh, 30-min updates), OLED, Visionect (10-min updates, 2-3 month battery), and finally Boox Mira Pro (real-time, plugged in).</li><li>Market validation failed: a pilot customer rejected the $1000 hardware cost (2019) for a 13" Visionect display, and Visionect's sudden $7/month per-device SaaS fee made commercialization economically unviable at ~$10/month subscription.</li><li>The Marshall Fire (2021) forced a complete rebuild, which coincided with Boox releasing the first high-resolution 25.3" real-time e-paper display—this constraint + new hardware enabled a 'status indicator' design philosophy where blank = healthy, reversing typical smart home 'scan everything' dashboards.</li>
+        <li>Dynamic derivations require three experimental Nix features: ca-derivations, dynamic-derivations, and recursive-nix</li><li>callPackage works like pkgs.callPackage but evaluates src contents at build time rather than evaluation time, avoiding IFD's sequential bottleneck</li><li>crate2nix integration provides a drop-in replacement for appliedCargoNix that eliminates both IFD overhead and generated file clutter in git history</li>
       </ul>
-      <div class="tags"><span class="tag">IoT</span><span class="tag">Home Assistant</span><span class="tag">E-paper</span><span class="tag">Rails</span></div>
-      <p><a href="https://hawksley.org/2026/02/17/timeframe.html" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Nix</span><span class="tag">BuildSystems</span><span class="tag">Rust</span><span class="tag">DevOps</span></div>
+      <p><a href="https://github.com/figsoda/drowse" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -104,7 +104,7 @@
     <div class="stats">
       <table>
         <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.4/10</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.8/10</strong></td></tr>
         <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
