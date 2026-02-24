@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoHound - 2026年2月23日星期一</title>
+  <title>InfoHound - 2026年2月24日星期二</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月23日星期一 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月24日星期二 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">I built Timeframe, our family e-paper dashboard</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article demonstrates a decade-long journey of refining a hardware-software solution through iterative prototyping, revealing how constraints like e-paper's slow refresh rate shaped product design and how real-world disasters can unexpectedly accelerate innovation.</div>
+      <div class="article-title">Ladybird adopts Rust, with help from AI</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This represents a major browser engine's pragmatic adoption of memory-safe languages, demonstrating how AI-assisted translation can accelerate large-scale codebase migrations that were previously impractical.</div>
       <ul class="key-points">
-        <li>Initial prototypes failed: LCD 'Magic Mirror' was unreadable in Colorado's natural light and glowed distractingly at night; jailbroken Kindles required constant maintenance and only updated every 30 minutes due to slow e-ink refresh.</li><li>Visionect's 6"/10"/13" displays ran 2-3 months on single charge but cost $1000+ in 2019, with vendor later adding $7/month per-device SaaS fees that killed commercial viability.</li><li>The 2021 Marshall Fire destroying the author's home became an unexpected pivot point, enabling ground-up redesign to incorporate Boox's 25.3" Mira Pro ($2000) — the first large high-resolution realtime e-paper display.</li><li>Realtime requirements forced architectural changes: eliminated IMGKit PNG generation, removed database and Redis, switched to Rufus Scheduler with file store cache, and migrated data sources to Home Assistant reducing codebase by 50%+.</li><li>Key UX insight: separating device control from status display allows 'negative space' design — blank screen means healthy state, eliminating cognitive load of scanning entire smart home dashboards.</li>
+        <li>AI-assisted translation used Claude Code and Codex through hundreds of human-directed prompts, followed by adversarial review passes with multiple models to catch errors</li><li>First target was LibJS (lexer, parser, AST, bytecode generator): ~25,000 lines of Rust produced with verified byte-for-byte identical output to C++ pipeline</li><li>Zero regressions: 52,898 test262 tests and 12,461 Ladybird regression tests all passed; no performance regressions on tracked JS benchmarks</li><li>Rust chosen despite poor fit for 1990s-style OOP web platform model due to mature ecosystem, safety guarantees, and precedent from Firefox/Chromium adoption</li><li>Swift previously rejected due to insufficient C++ interop and limited non-Apple platform support; Rust code intentionally non-idiomatic initially to maintain C++ compatibility</li>
       </ul>
-      <div class="tags"><span class="tag">IoT</span><span class="tag">Home Assistant</span><span class="tag">Embedded Systems</span><span class="tag">UX Design</span></div>
-      <p><a href="https://hawksley.org/2026/02/17/timeframe.html" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Rust</span><span class="tag">Browser Engine</span><span class="tag">AI-Assisted Development</span><span class="tag">Memory Safety</span></div>
+      <p><a href="https://ladybird.org/posts/adopting-rust/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,25 +77,25 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">codespelunker - CLI code search tool that understands code structure and ranks results by relevance. No indexing required</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> cs bridges the gap between blazing-fast CLI search tools and intelligent IDE-style search without the maintenance burden of indexes, solving the universal developer pain of drowning in irrelevant grep results.</div>
+      <div class="article-title">The Age Verification Trap: Verifying age undermines everyone's data protection</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Age verification laws are spreading globally, yet this article reveals how they systematically erode privacy protections for all users while failing to achieve their stated goal of protecting children.</div>
       <ul class="key-points">
-        <li>Structural awareness: parses files on-the-fly to distinguish code (1.0 weight), strings (0.5), and comments (0.2), with flags like --only-declarations to jump directly to function definitions across 25+ languages</li><li>Complexity gravity ranking: uses cyclomatic complexity to boost complex implementation files over interfaces/configs (--gravity=brain for 2.5x boost, --gravity=low for 0.2x)</li><li>Performance benchmark: searches and ranks the entire Linux kernel source in ~6 seconds on Apple Silicon M1 despite full lexical analysis per file</li>
+        <li>Platforms have only two technical tools for age enforcement: identity-based verification (government IDs, with gaps for 16-year-olds in many jurisdictions) and inference-based systems (behavioral signals, facial age estimation), which platforms combine into escalating, recurring checks rather than one-time verification.</li><li>Meta's Instagram uses AI-powered video selfie checks through third parties; TikTok scans public videos for age inference; Google/YouTube use behavioral signals with credit cards as adulthood proxies; Roblox's new system already suffers from children selling accounts to adult predators.</li><li>The verification trap operates through litigation risk: when regulators ask 'did you take reasonable steps,' platforms must log, retain, and monitor user data indefinitely to prove compliance, making 'we collected less data' a legally indefensible position.</li>
       </ul>
-      <div class="tags"><span class="tag">Developer Tools</span><span class="tag">CLI</span><span class="tag">Code Search</span><span class="tag">Information Retrieval</span></div>
-      <p><a href="https://github.com/boyter/cs" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Privacy</span><span class="tag">AI Governance</span><span class="tag">Regulatory Design</span><span class="tag">Digital Identity</span></div>
+      <p><a href="https://spectrum.ieee.org/age-verification" target="_blank">阅读原文 →</a></p>
     </div>
     
     <div class="article tech-deep">
-      <div class="article-title">Drowse: Nix dynamic derivations made easy</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.3/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Drowse solves a real pain point in the Nix ecosystem by eliminating the trade-off between slow evaluation (IFD) and messy code generation for tools like crate2nix, using an under-documented experimental feature.</div>
+      <div class="article-title">So I've Been Thinking About Static Site Generators</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why even 'fast' SSGs like Hugo are architecturally limited, and how proper incremental builds using the Red-Green algorithm could achieve sub-100ms rebuilds instead of full site rebuilds.</div>
       <ul class="key-points">
-        <li>Dynamic derivations require three experimental Nix features: ca-derivations, dynamic-derivations, and recursive-nix</li><li>callPackage works like pkgs.callPackage but evaluates src contents at build time rather than evaluation time, avoiding IFD's sequential bottleneck</li><li>crate2nix integration provides a drop-in replacement for appliedCargoNix that eliminates both IFD overhead and generated file clutter in git history</li>
+        <li>Most SSGs claiming 'fast rebuilds' actually do full clean builds; the author identifies this as a missed opportunity for true incremental compilation using algorithms like Rust's Red-Green approach</li><li>Profiling Astro revealed that only 0.4s of a 12.34s build was syscalls—the rest was JavaScript overhead, leading to the conclusion that SSGs must be built in compiled languages with single-process architectures</li><li>The core technical challenge is over-rebuilding: when a page's metadata changes, naive dependency tracking marks all pages dirty (due to 'next/previous' links), but Red-Green allows marking steps 'green' (unchanged) even with 'red' dependencies if outputs don't change</li>
       </ul>
-      <div class="tags"><span class="tag">Nix</span><span class="tag">BuildSystems</span><span class="tag">Rust</span><span class="tag">DevOps</span></div>
-      <p><a href="https://github.com/figsoda/drowse" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Static Site Generators</span><span class="tag">Rust</span><span class="tag">Build Systems</span><span class="tag">Performance Engineering</span></div>
+      <p><a href="https://wolfgirl.dev/blog/2026-02-23-so-ive-been-thinking-about-static-site-generators/" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -104,7 +104,7 @@
     <div class="stats">
       <table>
         <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.8/10</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
         <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
