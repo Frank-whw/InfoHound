@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月24日星期二 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月24日星期二 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Ladybird adopts Rust, with help from AI</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This represents a major browser engine's pragmatic adoption of memory-safe languages, demonstrating how AI-assisted translation can accelerate large-scale codebase migrations that were previously impractical.</div>
+      <div class="article-title">I Ported Coreboot to the ThinkPad X270</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This is a rare, detailed walkthrough of a real-world Coreboot porting effort that exposes the messy reality of hardware hacking—from accidentally launching capacitors into orbit to deciphering schematics—while demonstrating how open-source firmware development actually happens through community collaboration.</div>
       <ul class="key-points">
-        <li>AI-assisted translation used Claude Code and Codex through hundreds of human-directed prompts, followed by adversarial review passes with multiple models to catch errors</li><li>First target was LibJS (lexer, parser, AST, bytecode generator): ~25,000 lines of Rust produced with verified byte-for-byte identical output to C++ pipeline</li><li>Zero regressions: 52,898 test262 tests and 12,461 Ladybird regression tests all passed; no performance regressions on tracked JS benchmarks</li><li>Rust chosen despite poor fit for 1990s-style OOP web platform model due to mature ecosystem, safety guarantees, and precedent from Firefox/Chromium adoption</li><li>Swift previously rejected due to insufficient C++ interop and limited non-Apple platform support; Rust code intentionally non-idiomatic initially to maintain C++ compatibility</li>
+        <li>Hardware damage is routine: The author knocked off a 10uF 0603 capacitor twice during SOIC-8 clip flashing, requiring DigiKey replacement and schematic analysis using 'PJ304' silkscreen markings to identify the correct component.</li><li>The X270/X280 difference that mattered: While both share Kaby Lake chipsets, the X270 uses CLKREQ2/CLKOUT2 for WiFi (vs. disconnected on X280), requiring PCIe clock request renumbering that fixed NVMe and wireless detection failures.</li><li>deguard enables ME neutering without vulnerability requirement: The author clarified that Intel Management Engine delta patching works with any patched ME image, not just vulnerable versions—producing a 'HAP-bit and Deguarded' IME.</li><li>Toolchain: RP2040-zero with pico-serprog + flashprog for SPI dumping, ifdtool for Intel Flash Descriptor extraction, and careful preservation of GbE/IFD regions from stock BIOS for functional ethernet.</li><li>Community debugging: Libreboot founder Leah Rowe personally assisted with multiple test ROMs, demonstrating how niche firmware development relies on direct expert collaboration rather than documentation.</li>
       </ul>
-      <div class="tags"><span class="tag">Rust</span><span class="tag">Browser Engine</span><span class="tag">AI-Assisted Development</span><span class="tag">Memory Safety</span></div>
-      <p><a href="https://ladybird.org/posts/adopting-rust/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Firmware</span><span class="tag">Coreboot</span><span class="tag">Hardware Hacking</span><span class="tag">Open Source</span></div>
+      <p><a href="https://dork.dev/posts/2026-02-20-ported-coreboot/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,22 +77,11 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">The Age Verification Trap: Verifying age undermines everyone's data protection</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Age verification laws are spreading globally, yet this article reveals how they systematically erode privacy protections for all users while failing to achieve their stated goal of protecting children.</div>
-      <ul class="key-points">
-        <li>Platforms have only two technical tools for age enforcement: identity-based verification (government IDs, with gaps for 16-year-olds in many jurisdictions) and inference-based systems (behavioral signals, facial age estimation), which platforms combine into escalating, recurring checks rather than one-time verification.</li><li>Meta's Instagram uses AI-powered video selfie checks through third parties; TikTok scans public videos for age inference; Google/YouTube use behavioral signals with credit cards as adulthood proxies; Roblox's new system already suffers from children selling accounts to adult predators.</li><li>The verification trap operates through litigation risk: when regulators ask 'did you take reasonable steps,' platforms must log, retain, and monitor user data indefinitely to prove compliance, making 'we collected less data' a legally indefensible position.</li>
-      </ul>
-      <div class="tags"><span class="tag">Privacy</span><span class="tag">AI Governance</span><span class="tag">Regulatory Design</span><span class="tag">Digital Identity</span></div>
-      <p><a href="https://spectrum.ieee.org/age-verification" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
       <div class="article-title">So I've Been Thinking About Static Site Generators</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why even 'fast' SSGs like Hugo are architecturally limited, and how proper incremental builds using the Red-Green algorithm could achieve sub-100ms rebuilds instead of full site rebuilds.</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why even 'fast' SSGs like Hugo and Zola fail at true incremental builds, and proposes a concrete solution using Rust's Red-Green algorithm to achieve sub-100ms rebuilds.</div>
       <ul class="key-points">
-        <li>Most SSGs claiming 'fast rebuilds' actually do full clean builds; the author identifies this as a missed opportunity for true incremental compilation using algorithms like Rust's Red-Green approach</li><li>Profiling Astro revealed that only 0.4s of a 12.34s build was syscalls—the rest was JavaScript overhead, leading to the conclusion that SSGs must be built in compiled languages with single-process architectures</li><li>The core technical challenge is over-rebuilding: when a page's metadata changes, naive dependency tracking marks all pages dirty (due to 'next/previous' links), but Red-Green allows marking steps 'green' (unchanged) even with 'red' dependencies if outputs don't change</li>
+        <li>Profiling Astro revealed that only 0.4s of a 12.34s build was spent in syscalls—the rest was JavaScript overhead, motivating a compiled-language rewrite</li><li>The author identifies a critical flaw in naive incremental builds: changing one page's content can trigger full-site rebuilds when next/previous links cause 'collection of all metadata' to be marked dirty</li><li>The Red-Green algorithm (used by Rust's compiler) enables 'green' (unchanged) outputs even with 'red' (changed) dependencies, breaking the over-rebuild chain by verifying actual output changes</li>
       </ul>
       <div class="tags"><span class="tag">Static Site Generators</span><span class="tag">Rust</span><span class="tag">Build Systems</span><span class="tag">Performance Engineering</span></div>
       <p><a href="https://wolfgirl.dev/blog/2026-02-23-so-ive-been-thinking-about-static-site-generators/" target="_blank">阅读原文 →</a></p>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
