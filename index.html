@@ -57,44 +57,28 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月24日星期二 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月24日星期二 · 今日精选 1 篇 · 预计阅读 2 分钟</p>
 
     
     <div class="headline article tech-deep">
       <div class="article-title">I Ported Coreboot to the ThinkPad X270</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This is a rare, detailed walkthrough of a real-world Coreboot porting effort that exposes the messy reality of hardware hacking—from accidentally launching capacitors into orbit to deciphering schematics—while demonstrating how open-source firmware development actually happens through community collaboration.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This is one of the rare documented cases of successfully porting Coreboot to a new laptop model, including the actual hardware debugging process and community collaboration that made it possible.</div>
       <ul class="key-points">
-        <li>Hardware damage is routine: The author knocked off a 10uF 0603 capacitor twice during SOIC-8 clip flashing, requiring DigiKey replacement and schematic analysis using 'PJ304' silkscreen markings to identify the correct component.</li><li>The X270/X280 difference that mattered: While both share Kaby Lake chipsets, the X270 uses CLKREQ2/CLKOUT2 for WiFi (vs. disconnected on X280), requiring PCIe clock request renumbering that fixed NVMe and wireless detection failures.</li><li>deguard enables ME neutering without vulnerability requirement: The author clarified that Intel Management Engine delta patching works with any patched ME image, not just vulnerable versions—producing a 'HAP-bit and Deguarded' IME.</li><li>Toolchain: RP2040-zero with pico-serprog + flashprog for SPI dumping, ifdtool for Intel Flash Descriptor extraction, and careful preservation of GbE/IFD regions from stock BIOS for functional ethernet.</li><li>Community debugging: Libreboot founder Leah Rowe personally assisted with multiple test ROMs, demonstrating how niche firmware development relies on direct expert collaboration rather than documentation.</li>
+        <li>The X270 (Kaby Lake, 20HM model) differs from the X280 in critical ways: no Thunderbolt, SODIMM slot vs. soldered RAM, and crucially different PCIe CLKREQ routing—CLKREQ2 vs CLKREQ1 for WiFi, which was the key fix for NVMe/WiFi detection failures</li><li>Hardware debugging involved knocking off a 10uF 0603 capacitor during SOIC-8 chip clip flashing, requiring schematic analysis via 'PJ304' silkscreen marking and Digikey replacement</li><li>Used RP2040-zero with pico-serprog and flashprog for SPI flashing; extracted IFD, GbE, and ME regions with ifdtool; applied deguard for ME neutering without requiring a vulnerable ME version</li><li>The breakthrough fix involved correcting PCIe clock request assignments after comparing X280 and X270 schematics—CLKREQ4 goes nowhere on X280 but serves dual WiGig/WiFi on X270's single card</li><li>Full upstreaming in progress with working linux-libre compatibility planned via ath9k USB dongle, moving toward fully free software stack on modern-ish hardware</li>
       </ul>
-      <div class="tags"><span class="tag">Firmware</span><span class="tag">Coreboot</span><span class="tag">Hardware Hacking</span><span class="tag">Open Source</span></div>
+      <div class="tags"><span class="tag">firmware</span><span class="tag">coreboot</span><span class="tag">hardware-hacking</span><span class="tag">open-source</span></div>
       <p><a href="https://dork.dev/posts/2026-02-20-ported-coreboot/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
     
-    <div class="section">
-      <div class="section-title">🔥 深度技术</div>
-      
-    <div class="article tech-deep">
-      <div class="article-title">So I've Been Thinking About Static Site Generators</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why even 'fast' SSGs like Hugo and Zola fail at true incremental builds, and proposes a concrete solution using Rust's Red-Green algorithm to achieve sub-100ms rebuilds.</div>
-      <ul class="key-points">
-        <li>Profiling Astro revealed that only 0.4s of a 12.34s build was spent in syscalls—the rest was JavaScript overhead, motivating a compiled-language rewrite</li><li>The author identifies a critical flaw in naive incremental builds: changing one page's content can trigger full-site rebuilds when next/previous links cause 'collection of all metadata' to be marked dirty</li><li>The Red-Green algorithm (used by Rust's compiler) enables 'green' (unchanged) outputs even with 'red' (changed) dependencies, breaking the over-rebuild chain by verifying actual output changes</li>
-      </ul>
-      <div class="tags"><span class="tag">Static Site Generators</span><span class="tag">Rust</span><span class="tag">Build Systems</span><span class="tag">Performance Engineering</span></div>
-      <p><a href="https://wolfgirl.dev/blog/2026-02-23-so-ive-been-thinking-about-static-site-generators/" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    </div>
-    
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>1 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.5/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>2 分钟</strong></td></tr>
       </table>
     </div>
 
