@@ -62,12 +62,12 @@
     
     <div class="headline article tech-deep">
       <div class="article-title">Show HN: Moonshine Open-Weights STT models – higher accuracy than WhisperLargev3</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.8/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Moonshine solves the critical latency and accuracy problems that make Whisper unsuitable for real-time voice applications, offering 5-100x faster inference with better accuracy on everything from MacBooks to Raspberry Pis.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Moonshine delivers faster, more accurate on-device speech recognition than OpenAI's Whisper while solving critical real-time streaming limitations that make Whisper unsuitable for live voice interfaces.</div>
       <ul class="key-points">
-        <li>Achieves 6.65% WER vs Whisper Large V3's 7.44% with 6x fewer parameters (245M vs 1.5B), and delivers 107ms latency on MacBook Pro compared to 11,286ms for Whisper Large V3</li><li>Eliminates Whisper's 30-second fixed window constraint with flexible input lengths and implements caching for streaming, avoiding redundant computation on previously-seen audio</li><li>Offers language-specific models (English, Spanish, Mandarin, Japanese, Korean, Vietnamese, Ukrainian, Arabic) that achieve higher accuracy than multilingual models at equivalent sizes</li><li>Provides unified cross-platform deployment via portable C++ core with native bindings for Python, Swift, Java, and C++ across iOS, Android, macOS, Linux, Windows, and Raspberry Pi</li><li>Includes batteries-included APIs for transcription, speaker diarization, and semantic command recognition without requiring ML expertise</li>
+        <li>Moonshine Medium Streaming achieves 6.65% WER vs Whisper Large v3's 7.44% WER, despite having 6x fewer parameters (245M vs 1.5B) and running 105x faster on MacBook Pro (107ms vs 11,286ms latency)</li><li>Solves Whisper's fundamental architectural flaws for live speech: fixed 30-second input windows causing wasted computation on zero-padding, and lack of caching forcing redundant processing on repeated calls</li><li>Supports true streaming with incremental audio addition and cached encoder/decoder state, enabling sub-200ms responsiveness critical for voice interfaces</li><li>Offers language-specific models (English, Spanish, Mandarin, Japanese, Korean, Vietnamese, Ukrainian, Arabic) that outperform multilingual Whisper—only 33 of 82 Whisper languages achieve sub-20% WER vs Moonshine's focused accuracy</li><li>Single cross-platform C++ core with OnnxRuntime deploys identically across Python, iOS, Android, macOS, Linux, Windows, Raspberry Pi, and IoT/wearables with native language bindings</li>
       </ul>
-      <div class="tags"><span class="tag">Speech-to-Text</span><span class="tag">Edge AI</span><span class="tag">Real-time Systems</span><span class="tag">On-device ML</span></div>
+      <div class="tags"><span class="tag">Speech Recognition</span><span class="tag">Edge AI</span><span class="tag">Real-time Systems</span><span class="tag">OnnxRuntime</span></div>
       <p><a href="https://github.com/moonshine-ai/moonshine" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -79,11 +79,11 @@
     <div class="article tech-deep">
       <div class="article-title">I'm helping my dog vibe code games</div>
       <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates how creative prompt engineering and automated feedback loops can turn even chaotic input into functional software, offering a blueprint for human-AI collaboration that doesn't require traditional coding skills.</div>
+      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates how creative prompt engineering and automated tooling can turn even random noise into structured software output, pushing the boundaries of what's possible with AI-assisted development.</div>
       <ul class="key-points">
-        <li>The breakthrough prompt framed Momo's random keystrokes as 'cryptic genius' from an eccentric game designer, enabling Claude to interpret 'y7u8888888ftrg34BC' as a 3D frog bug-catching game called 'Swamp Snacker'</li><li>Automated feedback tools—screenshots and simulated gameplay input—were the single biggest lever for quality, allowing Claude to act as its own QA tester and play through all 6 stages of a game to verify the final boss fight worked</li><li>Godot 4.6 with C# was chosen over Rust/Bevy (poorer visuals, coordinate confusion) and Unity (MCP bridge instability); Godot's text-based .tscn scene files allowed Claude to read and edit scenes directly</li>
+        <li>The core innovation is a carefully crafted prompt that frames random input as 'secret cryptic commands' from an eccentric game designer, combined with strict guardrails (checklist: working audio, WASD controls, visible player, enemies) that improved output quality dramatically</li><li>The full pipeline: Bluetooth keyboard → Raspberry Pi 5 → Rust proxy (DogKeyboard) that filters dangerous keys → Claude Code → smart treat dispenser triggered by input volume, with games built in 1-2 hours using Godot 4.6 and C#</li><li>Critical tooling for reliability: Python screenshot capture, automated input sequences for QA testing (Claude played through 6 stages to verify a boss fight), plus linters for Godot scenes and shaders that eliminated cryptic runtime errors</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">GameDev</span><span class="tag">PromptEngineering</span><span class="tag">Godot</span></div>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Game Development</span><span class="tag">Prompt Engineering</span><span class="tag">Godot</span></div>
       <p><a href="https://www.calebleak.com/posts/dog-game/" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -93,7 +93,7 @@
     <div class="stats">
       <table>
         <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.4/10</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
         <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
