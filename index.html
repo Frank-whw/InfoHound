@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoHound - 2026年2月25日星期三</title>
+  <title>InfoHound - 2026年2月26日星期四</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月25日星期三 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月26日星期四 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Show HN: Moonshine Open-Weights STT models – higher accuracy than WhisperLargev3</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.8/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Moonshine achieves 6.65% WER vs Whisper Large v3's 7.44% with 16x fewer parameters and 100x lower latency, finally making real-time, on-device voice interfaces practical across resource-constrained devices.</div>
+      <div class="article-title">Jimi Hendrix was a systems engineer</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reframes artistic genius as engineering methodology, offering a reproducible, systems-thinking approach to understanding how Hendrix pioneered electric guitar sound design through deliberate signal chain manipulation rather than inexplicable talent.</div>
       <ul class="key-points">
-        <li>Latency breakthrough: Moonshine Medium achieves 107ms on MacBook Pro vs Whisper Large v3's 11,286ms—105x faster—while using 245M vs 1.5B parameters and delivering lower word error rate (6.65% vs 7.44%)</li><li>Architectural fixes for streaming: Eliminates Whisper's fixed 30-second window (wasted compute on zero-padding) and adds encoder/decoder state caching, enabling incremental processing as users speak</li><li>Language-specific models beat multilingual: Training separate models per language (English, Spanish, Mandarin, Japanese, Korean, Vietnamese, Ukrainian, Arabic) yields higher accuracy at same size than Whisper's 82-language approach where only 33 languages achieve <20% WER</li><li>Cross-platform deployment: Single C++ core with OnnxRuntime powers native libraries for Python, iOS, Android, macOS, Linux, Windows, and Raspberry Pi—addressing Whisper's fragmented edge ecosystem</li><li>Edge viability: Tiny 34M model runs at 34ms on MacBook, 237ms on Raspberry Pi 5, making voice interfaces feasible on IoT/wearables where Whisper fails (Whisper Tiny takes 5,863ms on Pi)</li>
+        <li>The 'cleanup effect' in Hendrix's sound emerged from the Fuzz Face's low input impedance (~20 kΩ) interacting directly with guitar pickups—reducing volume restores sinusoidal waveform, allowing fuzz to drop in and out dynamically during performance</li><li>Roger Mayer's custom Octavia pedal used a rectifier circuit to flip waveform troughs into peaks, doubling frequency and creating the distinctive octave-higher harmonic bloom heard on 'Purple Haze' (recorded 3 February 1967)</li><li>Hendrix's complete signal chain formed a gain-controlled acoustic feedback system: driving the Marshall 100-watt amplifier near saturation extended sustain, while moving centimeters relative to speakers shifted between stable feedback modes, enabling real-time 'tuning' of sirens, bombs, and harmonics</li><li>The author created fully reproducible ngspice circuit simulations of Hendrix's entire chain (Fuzz Face germanium/silicon variants, Octavia, wah-wah, Uni-Vibe) with source code available at github.com/nahorov/Hendrix-Systems-Lab</li><li>Each pedal addressed specific guitar limitations: Fuzz Face reshaped envelope attack/decay, wah-wah (300 Hz–2 kHz band-pass) created vocal 'talking' effects, and Uni-Vibe's four phase-shift sections modulated by photoresistors added motion and air</li>
       </ul>
-      <div class="tags"><span class="tag">Speech-to-Text</span><span class="tag">Edge AI</span><span class="tag">Real-time Systems</span><span class="tag">ONNX</span></div>
-      <p><a href="https://github.com/moonshine-ai/moonshine" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Signal Processing</span><span class="tag">Analog Electronics</span><span class="tag">Systems Engineering</span><span class="tag">Audio Engineering</span></div>
+      <p><a href="https://spectrum.ieee.org/jimi-hendrix-systems-engineer" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,25 +77,14 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Goodbye innerHTML, Hello setHTML: Stronger XSS Protection in Firefox 148</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Firefox 148 ships the first standardized browser-native defense against XSS, finally giving developers a safe-by-default alternative to the notoriously vulnerable innerHTML pattern without requiring security expertise or architectural overhauls.</div>
+      <div class="article-title">Making MCP cheaper via CLI</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> AI agents waste 94% of tokens loading tool schemas they never use, and this simple CLI-based approach slashes costs while working with any model—not just Anthropic.</div>
       <ul class="key-points">
-        <li>setHTML() sanitizes malicious HTML automatically: `<h1>Hello my name is <img src='x' onclick='alert('XSS')'>` becomes `<h1>Hello my name is</h1>` by removing dangerous elements and attributes</li><li>CSP, Firefox's previous XSS defense spearheaded in 2009, failed to protect the 'long tail of the web' due to requiring 'significant architectural changes' and 'continuous review by security experts'</li><li>XSS has ranked in the top 3 web vulnerabilities (CWE-79) for nearly a decade and remains 'notoriously difficult to prevent' despite decades of mitigation efforts</li>
+        <li>MCP's upfront schema loading costs ~15,540 tokens for 84 tools (6 servers × 14 tools), while CLI's lightweight skill listing costs only ~300 tokens—a 98% savings at session start</li><li>CLI trades upfront cost for on-demand discovery: --help calls add ~600 tokens per tool group, but total usage stays ~94% lower even with 100 tool calls</li><li>Anthropic's Tool Search achieves 85% savings but still loses to CLI: 40% more expensive at startup, 74% more expensive for single tool use, and 88% more expensive at scale</li>
       </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">Frontend</span><span class="tag">Browser API</span><span class="tag">XSS</span></div>
-      <p><a href="https://hacks.mozilla.org/2026/02/goodbye-innerhtml-hello-sethtml-stronger-xss-protection-in-firefox-148/" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">I'm helping my dog vibe code games</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This demonstrates a surprisingly robust framework for autonomous AI game development through creative prompt engineering, automated feedback loops, and hardware integration—showing how far LLMs can go with the right scaffolding.</div>
-      <ul class="key-points">
-        <li>The critical innovation was a persona-based prompt framing Momo's random keystrokes as intentional cryptic commands from 'an eccentric video game designer,' enabling Claude to creatively interpret gibberish like 'y7u8888888ftrg34BC' into a 3D frog bug-catching game concept.</li><li>Automated feedback loops—screenshots and simulated input sequences that let Claude play-test its own games—were 'the single biggest lever for fewer duds,' with the author observing Claude voluntarily play through 6 stages to verify a boss fight fix.</li><li>Godot's text-based .tscn scene format proved decisive over Unity and Bevy; Claude could directly read and edit scene files, whereas Unity's MCP bridge 'frequently hung' and Bevy's coordinate conventions and sparse training data caused persistent issues.</li>
-      </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Game Development</span><span class="tag">LLM Prompt Engineering</span><span class="tag">Godot</span></div>
-      <p><a href="https://www.calebleak.com/posts/dog-game/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">MCP</span><span class="tag">CLI</span><span class="tag">TokenOptimization</span></div>
+      <p><a href="https://kanyilmaz.me/2026/02/23/cli-vs-mcp.html" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.4/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.1/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
