@@ -57,15 +57,15 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月26日星期四 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月26日星期四 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
       <div class="article-title">Google API keys weren't secrets, but then Gemini changed the rules</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Google's decade-old advice that API keys are safe to embed in public code has been silently invalidated by Gemini, leaving thousands of organizations unknowingly exposed to data theft and billing fraud.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Thousands of organizations unknowingly have publicly exposed API keys that attackers can now use to steal private data and rack up massive AI bills, because Google retroactively turned decade-old 'non-secret' keys into sensitive credentials without warning developers.</div>
       <ul class="key-points">
-        <li>Google explicitly told developers for over a decade that API keys (AIza...) were safe to embed client-side—Firebase's security checklist literally states 'API keys are not secrets'</li><li>Researchers found 2,863 live exposed keys in the November 2025 Common Crawl, including keys from major financial institutions, security companies, and Google itself</li><li>The attack is trivial: scrape a Maps key from any website's HTML, then use it to access /files/ and /cachedContents/ endpoints containing private data and rack up AI charges</li><li>Google initially dismissed the report as 'intended behavior' on Nov 25, 2025, only reclassifying it as a bug after researchers provided proof-of-concept using Google's own exposed keys</li><li>Root cause: single key format for both public identification and sensitive authentication violates secure API design principles (no separation of publishable vs. secret keys)</li>
+        <li>Google spent over a decade documenting that API keys (AIza...) were 'not secrets' and safe for public client-side embedding in Maps, Firebase, and other services, designed only as billing identifiers with bypassable restrictions.</li><li>When Gemini launched, any API key in an enabled project automatically gained access to sensitive endpoints (/files, /cachedContents) with no warning, notification, or confirmation—turning public billing tokens into live authentication credentials for private data access.</li><li>Researchers found 2,863 live exposed keys in the November 2025 Common Crawl, including keys from major financial institutions, security companies, and Google itself; one Google product key had been public since February 2023 and could access Gemini's /models endpoint.</li><li>Attackers can exploit this by simply viewing page source, extracting the AIza... key, and calling Gemini endpoints to access uploaded files, cached data, exhaust quotas, or generate thousands of dollars in daily charges—all without touching victim infrastructure.</li><li>Google initially dismissed the report as 'intended behavior' but reclassified it as a Tier 1 'Single-Service Privilege Escalation' bug after researchers provided proof-of-concept using Google's own exposed keys; remediation includes leaked key blocking and scoped defaults for new keys.</li>
       </ul>
       <div class="tags"><span class="tag">Security</span><span class="tag">API</span><span class="tag">Google Cloud</span><span class="tag">Privilege Escalation</span></div>
       <p><a href="https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules" target="_blank">阅读原文 →</a></p>
@@ -78,24 +78,13 @@
       
     <div class="article tech-deep">
       <div class="article-title">Against Query Based Compilers</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.3/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article challenges the prevailing wisdom that query-based compilers are a silver bullet for incremental compilation, offering concrete architectural alternatives that could save years of engineering effort on new language tooling.</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article challenges the prevailing wisdom that query-based compilers are always the right solution, offering concrete architectural alternatives that can yield simpler, faster incremental compilation—critical knowledge for anyone building or optimizing language tooling.</div>
       <ul class="key-points">
-        <li>Query-based compilers have a fundamental Big-O limitation: update work cannot be smaller than the change in result, making them ineffective for operations with 'avalanche properties' like hashing or encryption where small input changes flip half the output bits</li><li>Zig vs. Rust comparison demonstrates how language design determines query necessity: Zig's explicit name declarations and file-isolated parsing avoid queries entirely, while Rust's macros and crate-wide name resolution force fine-grained dependency tracking from the start</li><li>Rust's trait system creates particularly nasty query overhead—every trait method call depends not just on the found impl block, but on proving non-existence of conflicting impls across all files</li>
+        <li>Query-based compilers rely on 'early cutoff' optimization to avoid recomputation, but their effectiveness is fundamentally bounded by the dependency structure of the source language—languages with 'avalanche' properties (like Rust's trait system or macros) force O(N) updates for O(1) changes regardless of the incremental framework used.</li><li>Zig demonstrates an alternative: by designing the language so files can be parsed and name-resolved independently (no implicit imports, no macros generating code), Zig pushes queries far down the pipeline, achieving better performance with simpler architecture.</li><li>Rust exemplifies the worst case: macros require name resolution during parsing, and trait impls can appear anywhere, forcing fine-grained dependency tracking from the very start of compilation and creating dependencies on 'non-existence of conflicting impls' across the entire codebase.</li>
       </ul>
-      <div class="tags"><span class="tag">Compilers</span><span class="tag">Incremental-Computation</span><span class="tag">Language-Design</span><span class="tag">IDE</span></div>
+      <div class="tags"><span class="tag">Compilers</span><span class="tag">Incremental Compilation</span><span class="tag">Programming Languages</span><span class="tag">IDE</span></div>
       <p><a href="https://matklad.github.io/2026/02/25/against-query-based-compilers.html" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">Jimi Hendrix was a systems engineer</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article demonstrates how engineering analysis can demystify creative genius, providing a reproducible, inspectable framework for understanding Hendrix's revolutionary sound design that remains relevant for modern audio engineers and musicians.</div>
-      <ul class="key-points">
-        <li>Hendrix's signal chain for 'Purple Haze' (recorded 3 February 1967) consisted of a Fuzz Face, Octavia, wah-wah pedal, and Marshall 100-watt amplifier stack, with the guitar and room acoustics forming a closed feedback loop he tuned with his body position</li><li>The Fuzz Face's low input impedance (~20 kΩ) creates the 'cleanup effect' where reducing guitar volume restores sinusoidal wave shape, allowing dynamic fuzz control—this interaction between pickup inductance (2.5 H) and pedal circuit was intentional, not malfunction</li><li>The custom Octavia pedal used a rectifier to flip waveform troughs into peaks, doubling frequency and producing second-harmonic content an octave above the fundamental—so novel that remastering engineers required explanatory notes</li>
-      </ul>
-      <div class="tags"><span class="tag">Signal Processing</span><span class="tag">Analog Circuits</span><span class="tag">Audio Engineering</span><span class="tag">Systems Design</span></div>
-      <p><a href="https://spectrum.ieee.org/jimi-hendrix-systems-engineer" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.5/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>8/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
