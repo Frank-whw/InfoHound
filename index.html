@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月26日星期四 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月26日星期四 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Jimi Hendrix was a systems engineer</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article reframes artistic genius as engineering methodology, offering a reproducible, systems-thinking approach to understanding how Hendrix pioneered electric guitar sound design through deliberate signal chain manipulation rather than inexplicable talent.</div>
+      <div class="article-title">Google API keys weren't secrets, but then Gemini changed the rules</div>
+      <div class="article-meta">来源: Hacker News · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Google's decade-old advice that API keys are safe to embed in public code has been silently invalidated by Gemini, leaving thousands of organizations unknowingly exposed to data theft and billing fraud.</div>
       <ul class="key-points">
-        <li>The 'cleanup effect' in Hendrix's sound emerged from the Fuzz Face's low input impedance (~20 kΩ) interacting directly with guitar pickups—reducing volume restores sinusoidal waveform, allowing fuzz to drop in and out dynamically during performance</li><li>Roger Mayer's custom Octavia pedal used a rectifier circuit to flip waveform troughs into peaks, doubling frequency and creating the distinctive octave-higher harmonic bloom heard on 'Purple Haze' (recorded 3 February 1967)</li><li>Hendrix's complete signal chain formed a gain-controlled acoustic feedback system: driving the Marshall 100-watt amplifier near saturation extended sustain, while moving centimeters relative to speakers shifted between stable feedback modes, enabling real-time 'tuning' of sirens, bombs, and harmonics</li><li>The author created fully reproducible ngspice circuit simulations of Hendrix's entire chain (Fuzz Face germanium/silicon variants, Octavia, wah-wah, Uni-Vibe) with source code available at github.com/nahorov/Hendrix-Systems-Lab</li><li>Each pedal addressed specific guitar limitations: Fuzz Face reshaped envelope attack/decay, wah-wah (300 Hz–2 kHz band-pass) created vocal 'talking' effects, and Uni-Vibe's four phase-shift sections modulated by photoresistors added motion and air</li>
+        <li>Google explicitly told developers for over a decade that API keys (AIza...) were safe to embed client-side—Firebase's security checklist literally states 'API keys are not secrets'</li><li>Researchers found 2,863 live exposed keys in the November 2025 Common Crawl, including keys from major financial institutions, security companies, and Google itself</li><li>The attack is trivial: scrape a Maps key from any website's HTML, then use it to access /files/ and /cachedContents/ endpoints containing private data and rack up AI charges</li><li>Google initially dismissed the report as 'intended behavior' on Nov 25, 2025, only reclassifying it as a bug after researchers provided proof-of-concept using Google's own exposed keys</li><li>Root cause: single key format for both public identification and sensitive authentication violates secure API design principles (no separation of publishable vs. secret keys)</li>
       </ul>
-      <div class="tags"><span class="tag">Signal Processing</span><span class="tag">Analog Electronics</span><span class="tag">Systems Engineering</span><span class="tag">Audio Engineering</span></div>
-      <p><a href="https://spectrum.ieee.org/jimi-hendrix-systems-engineer" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">API</span><span class="tag">Google Cloud</span><span class="tag">Privilege Escalation</span></div>
+      <p><a href="https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,14 +77,25 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Making MCP cheaper via CLI</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> AI agents waste 94% of tokens loading tool schemas they never use, and this simple CLI-based approach slashes costs while working with any model—not just Anthropic.</div>
+      <div class="article-title">Against Query Based Compilers</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.3/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article challenges the prevailing wisdom that query-based compilers are a silver bullet for incremental compilation, offering concrete architectural alternatives that could save years of engineering effort on new language tooling.</div>
       <ul class="key-points">
-        <li>MCP's upfront schema loading costs ~15,540 tokens for 84 tools (6 servers × 14 tools), while CLI's lightweight skill listing costs only ~300 tokens—a 98% savings at session start</li><li>CLI trades upfront cost for on-demand discovery: --help calls add ~600 tokens per tool group, but total usage stays ~94% lower even with 100 tool calls</li><li>Anthropic's Tool Search achieves 85% savings but still loses to CLI: 40% more expensive at startup, 74% more expensive for single tool use, and 88% more expensive at scale</li>
+        <li>Query-based compilers have a fundamental Big-O limitation: update work cannot be smaller than the change in result, making them ineffective for operations with 'avalanche properties' like hashing or encryption where small input changes flip half the output bits</li><li>Zig vs. Rust comparison demonstrates how language design determines query necessity: Zig's explicit name declarations and file-isolated parsing avoid queries entirely, while Rust's macros and crate-wide name resolution force fine-grained dependency tracking from the start</li><li>Rust's trait system creates particularly nasty query overhead—every trait method call depends not just on the found impl block, but on proving non-existence of conflicting impls across all files</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">MCP</span><span class="tag">CLI</span><span class="tag">TokenOptimization</span></div>
-      <p><a href="https://kanyilmaz.me/2026/02/23/cli-vs-mcp.html" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Compilers</span><span class="tag">Incremental-Computation</span><span class="tag">Language-Design</span><span class="tag">IDE</span></div>
+      <p><a href="https://matklad.github.io/2026/02/25/against-query-based-compilers.html" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
+      <div class="article-title">Jimi Hendrix was a systems engineer</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article demonstrates how engineering analysis can demystify creative genius, providing a reproducible, inspectable framework for understanding Hendrix's revolutionary sound design that remains relevant for modern audio engineers and musicians.</div>
+      <ul class="key-points">
+        <li>Hendrix's signal chain for 'Purple Haze' (recorded 3 February 1967) consisted of a Fuzz Face, Octavia, wah-wah pedal, and Marshall 100-watt amplifier stack, with the guitar and room acoustics forming a closed feedback loop he tuned with his body position</li><li>The Fuzz Face's low input impedance (~20 kΩ) creates the 'cleanup effect' where reducing guitar volume restores sinusoidal wave shape, allowing dynamic fuzz control—this interaction between pickup inductance (2.5 H) and pedal circuit was intentional, not malfunction</li><li>The custom Octavia pedal used a rectifier to flip waveform troughs into peaks, doubling frequency and producing second-harmonic content an octave above the fundamental—so novel that remastering engineers required explanatory notes</li>
+      </ul>
+      <div class="tags"><span class="tag">Signal Processing</span><span class="tag">Analog Circuits</span><span class="tag">Audio Engineering</span><span class="tag">Systems Design</span></div>
+      <p><a href="https://spectrum.ieee.org/jimi-hendrix-systems-engineer" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -92,9 +103,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.1/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.5/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
 
