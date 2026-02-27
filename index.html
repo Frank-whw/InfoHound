@@ -57,17 +57,17 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月27日星期五 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月27日星期五 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">What Claude Code Chooses</div>
+      <div class="article-title">What Claude Code chooses</div>
       <div class="article-meta">来源: Hacker News · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This reveals how AI coding assistants are quietly reshaping developer tool adoption by defaulting to custom-built solutions over established vendors, creating a new 'invisible' stack that could disrupt SaaS markets.</div>
+      <div class="article-summary"><strong>为什么重要:</strong> As AI coding assistants become the primary interface for developer decisions, understanding Claude Code's tool preferences reveals which technologies will dominate future codebases regardless of current market share.</div>
       <ul class="key-points">
-        <li>Build vs. buy split: 252 total 'Custom/DIY' picks—more than any individual tool—including hand-rolled feature flags with env vars instead of LaunchDarkly, and JWT+bcrypt auth instead of Auth0</li><li>Near-monopoly tools: GitHub Actions 93.8% (152/162), Stripe 91.4% (64/70), shadcn/ui 90.1% (64/71), Vercel 100% for JS deployments</li><li>Invisible incumbents: Express got 0/119 primary picks, Redux 0/88, Jest only 7/171 (4%), AWS/GCP/Azure zero primary deployment picks in any stack</li><li>Model recency gradient: Opus 4.6 picks Drizzle 100% vs. Sonnet 4.5's Prisma 79%; Celery drops from 100% to 0% across Python job picks</li><li>Deployment stack lock-in: Vercel owns JS (100%), Railway owns Python (82%)—traditional cloud providers barely mentioned as alternatives</li>
+        <li>Build vs. buy: Custom/DIY was the most common choice across 252 total picks, including 69% for feature flags (config files + env vars), 100% for Python authentication (JWT + passlib), and 22% for observability</li><li>Near-monopoly tools: GitHub Actions 93.8% (152/162), Stripe 91.4% (64/70), shadcn/ui 90.1% (64/71), Vercel 100% (86/86 JS picks) — when Claude picks, it picks decisively</li><li>Model divergence: Sonnet 4.5 favors established tools (Prisma 79%, Celery 100%), while Opus 4.6 is forward-looking (Drizzle 100%, 0% Prisma, 11.4% custom builds) — showing recency gradient where newer models pick newer tools</li><li>Invisible incumbents: AWS/GCP/Azure received zero primary deployment picks despite market dominance; Express was entirely absent (0/119); Redux and Jest functionally deprecated with 0 primary picks each</li><li>Deployment split by stack: 100% Vercel for JS frontend, 82% Railway for Python backend — traditional cloud providers reduced to alternative mentions with minimal reasoning</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Developer Tools</span><span class="tag">Stack Decisions</span><span class="tag">Claude</span></div>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Developer Tools</span><span class="tag">Claude</span><span class="tag">Benchmarking</span></div>
       <p><a href="https://amplifying.ai/research/claude-code-picks" target="_blank">阅读原文 →</a></p>
     </div>
     
@@ -77,14 +77,36 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">How my side project got banned from the internet</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article exposes how fragile web reputation systems are and how a single false positive can cascade across 10+ security vendors, potentially destroying businesses that depend on web traffic.</div>
+      <div class="article-title">Statement from Dario Amodei on our discussions with the Department of War</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.7/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This reveals a high-stakes standoff between a leading AI company and the US military over ethical boundaries, with potential precedent-setting implications for how AI governance conflicts with national security demands.</div>
       <ul class="key-points">
-        <li>Google Safe Browsing cleared the flag in 2 hours, but 9 other vendors had already replicated it—demonstrating how security databases propagate errors virally without verification</li><li>Vendor resolution times varied dramatically: CRDF (1 day), BitDefender (3 days), alphaMountain.ai/Fortinet (4 days), CyRadar (6 days), Seclookup (8 days), Gridinsoft (16 days), with ESET and Lionic never responding</li><li>The root cause was a 302 temporary redirect (engramma.dev → app.engramma.dev) combined with a newly registered domain—a pattern security systems associate with malicious actors</li>
+        <li>Anthropic has been the first frontier AI company to deploy models in classified US government networks, National Laboratories, and provide custom models for national security, with Claude currently used for intelligence analysis, modeling/simulation, operational planning, and cyber operations</li><li>The company sacrificed 'several hundred million dollars in revenue' by cutting off CCP-linked firms and shutting down Chinese state-sponsored cyberattacks targeting Claude, demonstrating prior willingness to prioritize national security over profit</li><li>Two non-negotiable safeguards: (1) blocking mass domestic surveillance—which AI makes feasible at unprecedented scale by assembling scattered data (movements, browsing, associations) without warrants—and (2) prohibiting fully autonomous weapons due to current unreliability risks to warfighters and civilians</li>
       </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">Web Development</span><span class="tag">DevOps</span><span class="tag">False Positives</span></div>
+      <div class="tags"><span class="tag">AI Safety</span><span class="tag">National Security</span><span class="tag">AI Governance</span><span class="tag">Autonomous Weapons</span></div>
+      <p><a href="https://www.anthropic.com/news/statement-department-of-war" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
+      <div class="article-title">How my side project got banned from the internet</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.6/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> False positive security flagging can silently destroy a project's reputation across dozens of vendors with no unified appeals process, and this article documents the hidden operational reality of fighting automated systems that businesses rarely discuss publicly.</div>
+      <ul class="key-points">
+        <li>A simple 302 redirect from a new domain to a subdomain (engramma.dev → app.engramma.dev) triggered Google's 'Deceptive site ahead' warning, which then propagated to 10+ security vendors on VirusTotal</li><li>Resolution times varied dramatically by vendor: Google (2 hours), CRDF (1 day), BitDefender (3 days), alphaMountain.ai/Fortinet (4 days), CyRadar (6 days), Seclookup (8 days), Gridinsoft (16 days), with ESET and Lionic never responding</li><li>Vendor UX ranged from excellent (CRDF's no-account form) to Kafkaesque (Fortinet's automated system confirming its own false positive, CyRadar redirecting to Meta Messenger, Seclookup whitelisting github.com by accident)</li>
+      </ul>
+      <div class="tags"><span class="tag">Security</span><span class="tag">DevOps</span><span class="tag">Web Development</span><span class="tag">False Positives</span></div>
       <p><a href="https://trysound.io/how-my-side-project-got-banned-from-the-internet/" target="_blank">阅读原文 →</a></p>
+    </div>
+    
+    <div class="article tech-deep">
+      <div class="article-title">Making WebAssembly a first-class language on the Web</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why WebAssembly—despite its technical maturity—remains underutilized by average developers, and how fixing its 'second-class' status on the web could democratize access to near-native performance.</div>
+      <ul class="key-points">
+        <li>WebAssembly requires 15+ lines of boilerplate JavaScript (fetch, instantiateStreaming, imports) versus a single <script> tag for JavaScript, creating immediate friction for new developers</li><li>Accessing console.log from WebAssembly needs ~30 lines of binding code across JS and WASM modules, including manual memory management and string re-encoding, versus one line in JavaScript</li><li>The ESM integration proposal—already in Firefox and bundlers—enables direct WASM imports like `import { run } from '/module.wasm'` and `<script type='module' src='/module.wasm'>`, addressing loading friction</li>
+      </ul>
+      <div class="tags"><span class="tag">WebAssembly</span><span class="tag">JavaScript</span><span class="tag">Web Platform</span><span class="tag">Developer Experience</span></div>
+      <p><a href="https://hacks.mozilla.org/2026/02/making-webassembly-a-first-class-language-on-the-web/" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -92,9 +114,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.9/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
       </table>
     </div>
 
