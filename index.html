@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoHound - 2026年2月26日星期四</title>
+  <title>InfoHound - 2026年2月27日星期五</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月26日星期四 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
+    <p class="subtitle">2026年2月27日星期五 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Google API keys weren't secrets, but then Gemini changed the rules</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> Thousands of organizations unknowingly have publicly exposed API keys that attackers can now use to steal private data and rack up massive AI bills, because Google retroactively turned decade-old 'non-secret' keys into sensitive credentials without warning developers.</div>
+      <div class="article-title">Statement from Dario Amodei on Our Discussions with the Department of War</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This reveals a high-stakes confrontation between a leading AI company and the US military over ethical boundaries, with potential precedent-setting implications for how AI firms navigate national security demands versus democratic values.</div>
       <ul class="key-points">
-        <li>Google spent over a decade documenting that API keys (AIza...) were 'not secrets' and safe for public client-side embedding in Maps, Firebase, and other services, designed only as billing identifiers with bypassable restrictions.</li><li>When Gemini launched, any API key in an enabled project automatically gained access to sensitive endpoints (/files, /cachedContents) with no warning, notification, or confirmation—turning public billing tokens into live authentication credentials for private data access.</li><li>Researchers found 2,863 live exposed keys in the November 2025 Common Crawl, including keys from major financial institutions, security companies, and Google itself; one Google product key had been public since February 2023 and could access Gemini's /models endpoint.</li><li>Attackers can exploit this by simply viewing page source, extracting the AIza... key, and calling Gemini endpoints to access uploaded files, cached data, exhaust quotas, or generate thousands of dollars in daily charges—all without touching victim infrastructure.</li><li>Google initially dismissed the report as 'intended behavior' but reclassified it as a Tier 1 'Single-Service Privilege Escalation' bug after researchers provided proof-of-concept using Google's own exposed keys; remediation includes leaked key blocking and scoped defaults for new keys.</li>
+        <li>Anthropic was first frontier AI company to deploy in classified US government networks, National Laboratories, and provide custom national security models; Claude is already used for intelligence analysis, modeling/simulation, operational planning, and cyber operations</li><li>Company previously sacrificed 'several hundred million dollars in revenue' to cut off CCP-linked firms and shut down Chinese state-sponsored cyberattacks using Claude</li><li>Two non-negotiable exceptions: (1) mass domestic surveillance—AI can assemble scattered data into comprehensive life profiles at scale, exploiting legal gaps around warrantless data purchases; (2) fully autonomous weapons—current AI reliability insufficient, risking warfighter and civilian lives, with offered R&D collaboration rejected by DoW</li><li>DoW threats are contradictory: simultaneously labeling Anthropic a 'supply chain risk' (reserved for US adversaries, unprecedented for American company) while treating Claude as essential enough to invoke Defense Production Act</li><li>Anthropic will facilitate smooth transition to another provider if offboarded, maintaining models on proposed terms during transition</li>
       </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">API</span><span class="tag">Google Cloud</span><span class="tag">Privilege Escalation</span></div>
-      <p><a href="https://trufflesecurity.com/blog/google-api-keys-werent-secrets-but-then-gemini-changed-the-rules" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">AI Safety</span><span class="tag">National Security</span><span class="tag">AI Ethics</span></div>
+      <p><a href="https://www.anthropic.com/news/statement-department-of-war" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,14 +77,14 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Against Query Based Compilers</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article challenges the prevailing wisdom that query-based compilers are always the right solution, offering concrete architectural alternatives that can yield simpler, faster incremental compilation—critical knowledge for anyone building or optimizing language tooling.</div>
+      <div class="article-title">Git in Postgres</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article proposes a fundamental rearchitecture of how code forges work, replacing the filesystem/git-binary split with a unified Postgres backend—potentially enabling simpler self-hosted deployments that could accelerate the federation and decentralization of open source hosting.</div>
       <ul class="key-points">
-        <li>Query-based compilers rely on 'early cutoff' optimization to avoid recomputation, but their effectiveness is fundamentally bounded by the dependency structure of the source language—languages with 'avalanche' properties (like Rust's trait system or macros) force O(N) updates for O(1) changes regardless of the incremental framework used.</li><li>Zig demonstrates an alternative: by designing the language so files can be parsed and name-resolved independently (no implicit imports, no macros generating code), Zig pushes queries far down the pipeline, achieving better performance with simpler architecture.</li><li>Rust exemplifies the worst case: macros require name resolution during parsing, and trait impls can appear anywhere, forcing fine-grained dependency tracking from the very start of compilation and creating dependencies on 'non-existence of conflicting impls' across the entire codebase.</li>
+        <li>Multiple package managers (Cargo, Homebrew, Go, CocoaPods) hit scaling limits using git as a database, with Homebrew 4.0 switching from git clones to JSON downloads after GitHub explicitly asked them to stop due to repository size.</li><li>The git data model collapses to just two Postgres tables: objects (content-addressed by SHA1) and refs (named pointers with compare-and-swap updates), implemented in ~2,000 lines of C as libgit2 backends.</li><li>A practical demo query joins commit messages against Forgejo's issue tracker in a single SQL statement—something that currently requires shelling out to git log and pattern-matching in application code.</li>
       </ul>
-      <div class="tags"><span class="tag">Compilers</span><span class="tag">Incremental Compilation</span><span class="tag">Programming Languages</span><span class="tag">IDE</span></div>
-      <p><a href="https://matklad.github.io/2026/02/25/against-query-based-compilers.html" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Postgres</span><span class="tag">Git</span><span class="tag">Distributed Systems</span><span class="tag">DevOps</span></div>
+      <p><a href="https://nesbitt.io/2026/02/26/git-in-postgres.html" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -93,7 +93,7 @@
     <div class="stats">
       <table>
         <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>8/10</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.3/10</strong></td></tr>
         <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
