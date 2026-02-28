@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfoHound - 2026年2月27日星期五</title>
+  <title>InfoHound - 2026年2月28日星期六</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月27日星期五 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
+    <p class="subtitle">2026年2月28日星期六 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">What Claude Code chooses</div>
-      <div class="article-meta">来源: Hacker News · 评分: 8.3/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> As AI coding assistants become the primary interface for developer decisions, understanding Claude Code's tool preferences reveals which technologies will dominate future codebases regardless of current market share.</div>
+      <div class="article-title">Accidentally disabling SSH access via scp</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This reveals a dangerous, counterintuitive behavior in scp that can silently lock you out of remote systems—a risk that affects anyone using common file transfer workflows without realizing the permission inheritance trap.</div>
       <ul class="key-points">
-        <li>Build vs. buy: Custom/DIY was the most common choice across 252 total picks, including 69% for feature flags (config files + env vars), 100% for Python authentication (JWT + passlib), and 22% for observability</li><li>Near-monopoly tools: GitHub Actions 93.8% (152/162), Stripe 91.4% (64/70), shadcn/ui 90.1% (64/71), Vercel 100% (86/86 JS picks) — when Claude picks, it picks decisively</li><li>Model divergence: Sonnet 4.5 favors established tools (Prisma 79%, Celery 100%), while Opus 4.6 is forward-looking (Drizzle 100%, 0% Prisma, 11.4% custom builds) — showing recency gradient where newer models pick newer tools</li><li>Invisible incumbents: AWS/GCP/Azure received zero primary deployment picks despite market dominance; Express was entirely absent (0/119); Redux and Jest functionally deprecated with 0 primary picks each</li><li>Deployment split by stack: 100% Vercel for JS frontend, 82% Railway for Python backend — traditional cloud providers reduced to alternative mentions with minimal reasoning</li>
+        <li>scp -r . host: copies the current directory's contents to the remote home directory, but also overwrites the target directory's permissions to match the source—changing a 700 home directory to 777 if the source had those permissions</li><li>sshd enforces strict permission checks on the server side too: it refuses publickey authentication when the home directory is world-writable (777), logging 'Authentication refused: bad ownership or modes for directory'</li><li>The author discovered this through a WebDAV backup access, then reproduced it: a 700 remote_directory became 777 after scp -r from a 777 local directory, confirming the behavior</li><li>OpenSSH acknowledged and fixed the bug within hours; the patch was committed for release 10.3, indicating this was recognized as a legitimate security/usability issue</li><li>Workaround: always verify source directory permissions before scp -r, or use rsync with --no-perms, or explicitly chmod the target directory after transfer</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Developer Tools</span><span class="tag">Claude</span><span class="tag">Benchmarking</span></div>
-      <p><a href="https://amplifying.ai/research/claude-code-picks" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">SSH</span><span class="tag">Linux</span><span class="tag">DevOps</span></div>
+      <p><a href="https://sny.sh/hypha/blog/scp" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,36 +77,30 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Statement from Dario Amodei on our discussions with the Department of War</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.7/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This reveals a high-stakes standoff between a leading AI company and the US military over ethical boundaries, with potential precedent-setting implications for how AI governance conflicts with national security demands.</div>
+      <div class="article-title">Please stop using passkeys for encrypting user data</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Organizations are increasingly using passkeys for encryption without considering that users routinely delete credentials they don't recognize, risking permanent loss of irreplaceable data like family photos and financial records.</div>
       <ul class="key-points">
-        <li>Anthropic has been the first frontier AI company to deploy models in classified US government networks, National Laboratories, and provide custom models for national security, with Claude currently used for intelligence analysis, modeling/simulation, operational planning, and cyber operations</li><li>The company sacrificed 'several hundred million dollars in revenue' by cutting off CCP-linked firms and shutting down Chinese state-sponsored cyberattacks targeting Claude, demonstrating prior willingness to prioritize national security over profit</li><li>Two non-negotiable safeguards: (1) blocking mass domestic surveillance—which AI makes feasible at unprecedented scale by assembling scattered data (movements, browsing, associations) without warrants—and (2) prohibiting fully autonomous weapons due to current unreliability risks to warfighters and civilians</li>
+        <li>The PRF (Pseudo-Random Function) extension in WebAuthn is being used by organizations to derive encryption keys for end-to-end encryption, message backups, documents, crypto wallets, and credential manager unlocking—expanding passkeys beyond their intended authentication purpose</li><li>A realistic user scenario illustrates the danger: 'Erika' deletes a passkey she doesn't remember creating, then loses access to encrypted backups containing photos of deceased relatives when she switches phones a year later</li><li>Current credential manager UIs (Apple Passwords, Google Password Manager, Bitwarden) show no warnings about data destruction when deleting passkeys with PRF enabled, and users cannot reasonably be expected to remember technical coupling decisions made months prior</li>
       </ul>
-      <div class="tags"><span class="tag">AI Safety</span><span class="tag">National Security</span><span class="tag">AI Governance</span><span class="tag">Autonomous Weapons</span></div>
-      <p><a href="https://www.anthropic.com/news/statement-department-of-war" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Security</span><span class="tag">Cryptography</span><span class="tag">Passkeys</span><span class="tag">WebAuthn</span></div>
+      <p><a href="https://blog.timcappalli.me/p/passkeys-prf-warning/" target="_blank">阅读原文 →</a></p>
     </div>
     
-    <div class="article tech-deep">
-      <div class="article-title">How my side project got banned from the internet</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.6/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> False positive security flagging can silently destroy a project's reputation across dozens of vendors with no unified appeals process, and this article documents the hidden operational reality of fighting automated systems that businesses rarely discuss publicly.</div>
-      <ul class="key-points">
-        <li>A simple 302 redirect from a new domain to a subdomain (engramma.dev → app.engramma.dev) triggered Google's 'Deceptive site ahead' warning, which then propagated to 10+ security vendors on VirusTotal</li><li>Resolution times varied dramatically by vendor: Google (2 hours), CRDF (1 day), BitDefender (3 days), alphaMountain.ai/Fortinet (4 days), CyRadar (6 days), Seclookup (8 days), Gridinsoft (16 days), with ESET and Lionic never responding</li><li>Vendor UX ranged from excellent (CRDF's no-account form) to Kafkaesque (Fortinet's automated system confirming its own false positive, CyRadar redirecting to Meta Messenger, Seclookup whitelisting github.com by accident)</li>
-      </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">DevOps</span><span class="tag">Web Development</span><span class="tag">False Positives</span></div>
-      <p><a href="https://trysound.io/how-my-side-project-got-banned-from-the-internet/" target="_blank">阅读原文 →</a></p>
     </div>
     
-    <div class="article tech-deep">
-      <div class="article-title">Making WebAssembly a first-class language on the Web</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.0/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article reveals why WebAssembly—despite its technical maturity—remains underutilized by average developers, and how fixing its 'second-class' status on the web could democratize access to near-native performance.</div>
+    <div class="section">
+      <div class="section-title">🌏 中文精选</div>
+      
+    <div class="article chinese">
+      <div class="article-title">科技爱好者周刊（第 386 期）：当外卖员接入 AI</div>
+      <div class="article-meta">来源: 阮一峰科技爱好者周刊 · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This article reveals a paradigm shift where AI moves beyond digital automation to orchestrate physical human labor, fundamentally changing how we think about workforce integration and the future of gig economy platforms.</div>
       <ul class="key-points">
-        <li>WebAssembly requires 15+ lines of boilerplate JavaScript (fetch, instantiateStreaming, imports) versus a single <script> tag for JavaScript, creating immediate friction for new developers</li><li>Accessing console.log from WebAssembly needs ~30 lines of binding code across JS and WASM modules, including manual memory management and string re-encoding, versus one line in JavaScript</li><li>The ESM integration proposal—already in Firefox and bundlers—enables direct WASM imports like `import { run } from '/module.wasm'` and `<script type='module' src='/module.wasm'>`, addressing loading friction</li>
+        <li>Waymo pays DoorDash workers $6.25-$11.25 per task to manually close car doors when passengers leave them open, rather than building remote door-closing technology</li><li>The critical insight: gig workers function as 'human APIs'—already plugged into software systems, making them programmatically callable for physical tasks that robots cannot yet handle</li><li>This hybrid 'machine + human' automation model could expand AI's scope dramatically; the author envisions AI managing entire home renovations by dispatching and coordinating human specialists (electricians, carpenters, inspectors) through automated task distribution</li>
       </ul>
-      <div class="tags"><span class="tag">WebAssembly</span><span class="tag">JavaScript</span><span class="tag">Web Platform</span><span class="tag">Developer Experience</span></div>
-      <p><a href="https://hacks.mozilla.org/2026/02/making-webassembly-a-first-class-language-on-the-web/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Gig Economy</span><span class="tag">Automation</span><span class="tag">Labor Economics</span></div>
+      <p><a href="http://www.ruanyifeng.com/blog/2026/02/weekly-issue-386.html" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -114,9 +108,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
 
