@@ -57,60 +57,28 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年2月28日星期六 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年2月28日星期六 · 今日精选 1 篇 · 预计阅读 2 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Accidentally disabling SSH access via scp</div>
+      <div class="article-title">An AI agent coding skeptic tries AI agent coding, in excessive detail</div>
       <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This reveals a dangerous edge case where a routine file transfer can silently lock you out of your own server, with implications for automated deployment scripts and backup procedures that many developers rely on.</div>
+      <div class="article-summary"><strong>为什么重要:</strong> This is one of the few rigorous, hype-free evaluations of AI agent coding from someone who actually measured productivity gains against costs rather than parroting marketing claims.</div>
       <ul class="key-points">
-        <li>SCP recursively copies permissions from source to destination even when the target directory already exists, unlike cp which typically preserves existing directory permissions</li><li>OpenSSH's sshd enforces strict permission checks on the server side: home directories must be 700 (rwx------) or stricter, or authentication is refused with 'bad ownership or modes' in logs</li><li>The specific trigger was `scp -r . host:` where a local 777 directory was copied to the home directory, overwriting its 700 permissions</li><li>The author only recovered because they had physical access to the SD card and an alternative WebDAV access method—remote servers without these fallbacks would require console access or recovery modes</li><li>OpenSSH fixed this in version 10.3 after a same-day bug report, indicating it was recognized as a legitimate security/usability issue</li>
+        <li>The author created an intricate AGENTS.md file with 20+ rules (using ALL CAPS for critical constraints like 'MUST avoid redundant comments' and 'NEVER use emoji') and found it was likely the main differentiator between good and bad agent results—a practice they consider underappreciated.</li><li>Opus 4.5 successfully built a YouTube metadata scraper handling 20,000 videos with Pythonic code quality that surpassed the author's 2021 implementation, but only after explicit constraints like 'Do not use the Google Client SDK' and structured prompting via tracked Markdown files.</li><li>Earlier failures with Sonnet 4.5 (creating 'overly verbose Jupyter Notebooks') and mixed results with Copilot for grid image processing (errors in row/column ordering) demonstrate that agent capabilities remain task-dependent and require human oversight.</li><li>The author's workflow explicitly rejects Anthropic's simplified prompting advice in favor of detailed, version-controlled prompt files with functional requirements the agent 'cannot magically apply because it cannot read minds.'</li><li>Productivity gains were real but measured: grid.py implementation was 'material' but not transformative, and the author remains 'more optimistic' yet explicitly 'not nearly enough to become an AI hypester.'</li>
       </ul>
-      <div class="tags"><span class="tag">Security</span><span class="tag">OpenSSH</span><span class="tag">Linux</span><span class="tag">DevOps</span></div>
-      <p><a href="https://sny.sh/hypha/blog/scp" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">Developer-Experience</span></div>
+      <p><a href="https://minimaxir.com/2026/02/ai-agent-coding/" target="_blank">阅读原文 →</a></p>
     </div>
     
 
-    
-    <div class="section">
-      <div class="section-title">🔥 深度技术</div>
-      
-    <div class="article tech-deep">
-      <div class="article-title">Statement on the comments from Secretary of War Pete Hegseth</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This represents a major escalation in the tension between AI safety commitments and government demands, with potential precedent-setting implications for how American tech companies negotiate national security contracts.</div>
-      <ul class="key-points">
-        <li>Anthropic has been negotiating with the Department of War for months, seeking two narrow exceptions to lawful AI use: no mass domestic surveillance of Americans and no fully autonomous weapons deployment</li><li>The company has supported American warfighters since June 2024 as the first frontier AI company to deploy models in classified government networks</li><li>A supply chain risk designation under 10 USC 3252 is historically reserved for US adversaries and has never before been publicly applied to an American company</li>
-      </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">National Security</span><span class="tag">AI Safety</span><span class="tag">Government Policy</span></div>
-      <p><a href="https://www.anthropic.com/news/statement-comments-secretary-war" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    </div>
-    
-    <div class="section">
-      <div class="section-title">🌏 中文精选</div>
-      
-    <div class="article chinese">
-      <div class="article-title">科技爱好者周刊（第 386 期）：当外卖员接入 AI</div>
-      <div class="article-meta">来源: 阮一峰科技爱好者周刊 · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article reveals a paradigm shift where AI systems can now programmatically orchestrate human labor through gig economy platforms, fundamentally expanding automation beyond digital tasks into physical world execution.</div>
-      <ul class="key-points">
-        <li>Waymo pays gig workers $6.25-$11.25 per task to manually close doors on its driverless taxis when passengers fail to do so, rather than building remote door-closing technology</li><li>The critical insight: gig workers have become 'human APIs'—standardized, on-demand labor accessible through software interfaces—enabling programs to invoke human action as part of automated workflows</li><li>This pattern suggests AI's next evolution: from manipulating computers (OpenClaw) to orchestrating hybrid 'machine + human' systems, with applications like AI-managed home renovation where the model designs, dispatches workers, and handles payments autonomously</li>
-      </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Gig Economy</span><span class="tag">Automation</span><span class="tag">Labor Economics</span></div>
-      <p><a href="http://www.ruanyifeng.com/blog/2026/02/weekly-issue-386.html" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    </div>
     
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.7/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>1 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>8.1/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>2 分钟</strong></td></tr>
       </table>
     </div>
 
