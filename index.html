@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年3月1日星期日 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
+    <p class="subtitle">2026年3月1日星期日 · 今日精选 2 篇 · 预计阅读 3 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">Package Managers à la Carte: A Formal Model of Dependency Resolution</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-expert">expert</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This paper addresses the fundamental fragmentation problem in software dependency management, enabling precise cross-language dependency resolution and unified security vulnerability tracking across ecosystems.</div>
+      <div class="article-title">prek: a better `pre-commit`</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> Major open-source projects like CPython, FastAPI, and Apache Airflow are already migrating to this Rust-based alternative, signaling a potential shift in the Python tooling ecosystem away from Python-based tooling itself.</div>
       <ul class="key-points">
-        <li>The Package Calculus provides a formal foundation that can model the full diversity of real-world package manager dependency expression languages through formal reductions</li><li>Current fragmentation prevents multilingual projects from expressing precise dependencies and leaves system/hardware dependencies implicit and unversioned</li><li>Security vulnerabilities are obscured in the full dependency graph because existing tools cannot reason across package manager boundaries</li><li>The formalism enables bidirectional translation between distinct package managers, allowing dependencies to be resolved across ecosystem boundaries</li><li>Authors include Ryan Gibb, Patrick Ferris, David Allsopp, Thomas Gazagnaire, and Anil Madhavapeddy from established systems/PL research backgrounds</li>
+        <li>Performance gains: multiple times faster than pre-commit with half the disk space usage through shared hook environments, parallel cloning/installation, and Rust-native hook implementations</li><li>Zero-dependency deployment: single binary requires no Python, Node, or other runtimes—solving version conflicts and virtual environment management headaches</li><li>Real-world validation: already adopted by CPython, Apache Airflow, FastAPI, Typer, Ruff, and 20+ other significant projects despite being relatively new</li><li>Enhanced CLI ergonomics: directory-scoped runs (--directory), last-commit targeting (--last-commit), multi-hook selection, and shell completions for hook IDs</li><li>Supply chain security: built-in cooldown-days flag for auto-update to mitigate open source dependency attacks</li>
       </ul>
-      <div class="tags"><span class="tag">Formal Methods</span><span class="tag">Dependency Management</span><span class="tag">Programming Languages</span><span class="tag">Software Supply Chain</span></div>
-      <p><a href="https://arxiv.org/abs/2602.18602" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">DevOps</span><span class="tag">Rust</span><span class="tag">Python</span><span class="tag">Git</span></div>
+      <p><a href="https://github.com/j178/prek" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -78,24 +78,13 @@
       
     <div class="article tech-deep">
       <div class="article-title">Microgpt</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This is the most distilled possible implementation of a GPT, stripping away all framework abstractions to reveal the raw mathematical core of large language models in just 200 lines of pure Python.</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This is the most distilled, educational implementation of a GPT ever created—200 lines of pure Python with zero dependencies that reveals the core algorithmic essence of large language models, stripped of all optimization noise.</div>
       <ul class="key-points">
-        <li>The entire implementation fits in a single file with zero dependencies, containing only: dataset loader, character-level tokenizer, autograd engine, GPT-2-like architecture, Adam optimizer, and training/inference loops—everything else is just optimization</li><li>Uses a deliberately simple dataset of 32,000 names to demonstrate that from the model's perspective, ChatGPT conversations are just 'funny looking documents' that it completes statistically</li><li>Implements autograd from scratch via a Value class that tracks computation graphs and applies reverse-mode automatic differentiation using only the chain rule, with operations like add (local grads: 1,1), multiply (b,a), and ReLU (indicator function)</li>
+        <li>The entire implementation fits in 200 lines across exactly 3 columns when printed, with no external dependencies—every line is essential algorithmic content that cannot be simplified further</li><li>Uses a character-level tokenizer (26 lowercase letters + 1 BOS token = 27 total vocabulary) rather than subword tokenizers like tiktoken, trading efficiency for pedagogical clarity</li><li>Implements a full autograd engine from scratch via a single `Value` class that tracks computation graphs and applies reverse-mode automatic differentiation using the chain rule</li>
       </ul>
       <div class="tags"><span class="tag">AI</span><span class="tag">Machine Learning</span><span class="tag">Educational</span><span class="tag">Python</span></div>
       <p><a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">prek: a better `pre-commit`</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> prek solves real developer pain points—slow hook execution, Python dependency headaches, and monorepo complexity—while already being trusted by major projects like CPython, FastAPI, and Apache Airflow despite its newness.</div>
-      <ul class="key-points">
-        <li>Performance: Multiple times faster than pre-commit with half the disk space usage through shared hook environments, parallel cloning/installation, and Rust-native hook implementations</li><li>Zero dependencies: Single binary requires no Python or other runtime, with automatic Python version management via uv integration when needed</li><li>Production adoption: Already used by high-profile projects including CPython, Apache Airflow, FastAPI, Astral's Ruff/Ty, and Home Assistant despite being new</li>
-      </ul>
-      <div class="tags"><span class="tag">Developer Tools</span><span class="tag">Rust</span><span class="tag">Git</span><span class="tag">DevOps</span></div>
-      <p><a href="https://github.com/j178/prek" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -103,9 +92,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>2 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.2/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>3 分钟</strong></td></tr>
       </table>
     </div>
 
