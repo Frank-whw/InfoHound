@@ -57,18 +57,18 @@
 <body>
   <div class="container">
     <h1>📰 InfoHound</h1>
-    <p class="subtitle">2026年3月1日星期日 · 今日精选 4 篇 · 预计阅读 6 分钟</p>
+    <p class="subtitle">2026年3月1日星期日 · 今日精选 3 篇 · 预计阅读 5 分钟</p>
 
     
     <div class="headline article tech-deep">
-      <div class="article-title">MinIO Is Dead, Long Live MinIO</div>
-      <div class="article-meta">来源: Hacker News · 评分: 7.8/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article demonstrates how AI-assisted development and AGPL licensing rights enable a single maintainer to resurrect a critical infrastructure project abandoned by its $1B-valued corporate sponsor, offering a blueprint for community-led open source sustainability.</div>
+      <div class="article-title">Package Managers à la Carte: A Formal Model of Dependency Resolution</div>
+      <div class="article-meta">来源: Lobste.rs · 评分: 8.1/10 <span class="level-badge level-expert">expert</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This paper addresses the fundamental fragmentation problem in software dependency management, enabling precise cross-language dependency resolution and unified security vulnerability tracking across ecosystems.</div>
       <ul class="key-points">
-        <li>MinIO's corporate death spiral: 2021 AGPL license change → 2022-2023 lawsuits against Nutanix/Weka → 2025 removal of admin console (behind ~$100K enterprise paywall) → Oct 2025 stopped binaries → Dec 2025 'maintenance mode' → Feb 2026 archived repo with 1B+ Docker pulls</li><li>The fork restores three critical things: (1) full admin console via reverting a submodule commit, (2) automated CI/CD pipeline for Docker/RPM/DEB across 14 Linux distros, and (3) community documentation that MinIO had redirected to commercial AIStor product</li><li>Single-maintainer viability: The author runs Pigsty (460+ PostgreSQL extensions, 290 build pipelines) and has dogfooded the MinIO fork in production for 3 months; AI coding tools (Claude Code, Codex) reduce bug-fixing costs by 'more than an order of magnitude'</li><li>Legal foundation: AGPLv3 makes the license grant irrevocable—MinIO Inc. 'can archive a repo, but can't archive the rights'—though trademark issues (MinIO® is registered) may require future rename to 'silo' or 'stow'</li><li>Drop-in replacement: Users swap 'minio/minio' → 'pgsty/minio' with zero other changes; installable via 'pig install minio' or standard package managers, with CVE patches applied and no new feature bloat</li>
+        <li>The Package Calculus provides a formal foundation that can model the full diversity of real-world package manager dependency expression languages through formal reductions</li><li>Current fragmentation prevents multilingual projects from expressing precise dependencies and leaves system/hardware dependencies implicit and unversioned</li><li>Security vulnerabilities are obscured in the full dependency graph because existing tools cannot reason across package manager boundaries</li><li>The formalism enables bidirectional translation between distinct package managers, allowing dependencies to be resolved across ecosystem boundaries</li><li>Authors include Ryan Gibb, Patrick Ferris, David Allsopp, Thomas Gazagnaire, and Anil Madhavapeddy from established systems/PL research backgrounds</li>
       </ul>
-      <div class="tags"><span class="tag">Open Source</span><span class="tag">Object Storage</span><span class="tag">AGPL</span><span class="tag">Infrastructure</span><span class="tag">AI-assisted Development</span></div>
-      <p><a href="https://blog.vonng.com/en/db/minio-resurrect/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">Formal Methods</span><span class="tag">Dependency Management</span><span class="tag">Programming Languages</span><span class="tag">Software Supply Chain</span></div>
+      <p><a href="https://arxiv.org/abs/2602.18602" target="_blank">阅读原文 →</a></p>
     </div>
     
 
@@ -77,36 +77,25 @@
       <div class="section-title">🔥 深度技术</div>
       
     <div class="article tech-deep">
-      <div class="article-title">Yes, and</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.5/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This article offers a rare balanced perspective from an educator-practitioner on how to actually survive and thrive as a programmer in the AI era, avoiding both denial and panic.</div>
+      <div class="article-title">Microgpt</div>
+      <div class="article-meta">来源: Hacker News · 评分: 7.4/10 <span class="level-badge level-advanced">advanced</span></div>
+      <div class="article-summary"><strong>为什么重要:</strong> This is the most distilled possible implementation of a GPT, stripping away all framework abstractions to reveal the raw mathematical core of large language models in just 200 lines of pure Python.</div>
       <ul class="key-points">
-        <li>The 'assembly → high-level' analogy for AI-generated code is flawed: compilers are deterministic and eliminate accidental complexity, while LLMs are non-deterministic and often add it through inappropriate shortcuts you can't detect if you can't read code.</li><li>Carson provides a concrete AGENTS.md file to configure AI as a 'great TA' rather than code generator—using it to explain concepts, overcome environmental roadblocks, and accelerate learning without skipping the writing-to-understand loop.</li><li>For seniors, the danger is 'brain rot' from The Eternal Scroll of waiting for AI outputs; effective use means AI analyzes existing code, organizes thoughts, generates small throwaway demos, and handles tedious tasks (regex, CSS)—never API design or maintainable systems.</li>
+        <li>The entire implementation fits in a single file with zero dependencies, containing only: dataset loader, character-level tokenizer, autograd engine, GPT-2-like architecture, Adam optimizer, and training/inference loops—everything else is just optimization</li><li>Uses a deliberately simple dataset of 32,000 names to demonstrate that from the model's perspective, ChatGPT conversations are just 'funny looking documents' that it completes statistically</li><li>Implements autograd from scratch via a Value class that tracks computation graphs and applies reverse-mode automatic differentiation using only the chain rule, with operations like add (local grads: 1,1), multiply (b,a), and ReLU (indicator function)</li>
       </ul>
-      <div class="tags"><span class="tag">AI</span><span class="tag">Career Development</span><span class="tag">Software Engineering</span><span class="tag">Education</span></div>
-      <p><a href="https://htmx.org/essays/yes-and/" target="_blank">阅读原文 →</a></p>
+      <div class="tags"><span class="tag">AI</span><span class="tag">Machine Learning</span><span class="tag">Educational</span><span class="tag">Python</span></div>
+      <p><a href="http://karpathy.github.io/2026/02/12/microgpt/" target="_blank">阅读原文 →</a></p>
     </div>
     
     <div class="article tech-deep">
       <div class="article-title">prek: a better `pre-commit`</div>
       <div class="article-meta">来源: Lobste.rs · 评分: 7.2/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> If you're tired of pre-commit's Python dependency bloat and slow performance, prek offers a production-ready Rust rewrite that's already trusted by major projects like CPython and FastAPI—without requiring you to change your existing configs.</div>
+      <div class="article-summary"><strong>为什么重要:</strong> prek solves real developer pain points—slow hook execution, Python dependency headaches, and monorepo complexity—while already being trusted by major projects like CPython, FastAPI, and Apache Airflow despite its newness.</div>
       <ul class="key-points">
-        <li>Performance gains: prek is 'multiple times faster' than pre-commit and uses half the disk space through shared hook environments, parallel cloning/installation, and Rust-native hook implementations</li><li>Adoption velocity: Despite being new, prek already powers critical infrastructure including CPython, Apache Airflow, FastAPI, Apache Iceberg, and Astral's own Ruff and uv projects</li><li>Zero-dependency deployment: Single binary with no Python/runtime required, eliminating version conflicts and virtual environment management headaches</li>
+        <li>Performance: Multiple times faster than pre-commit with half the disk space usage through shared hook environments, parallel cloning/installation, and Rust-native hook implementations</li><li>Zero dependencies: Single binary requires no Python or other runtime, with automatic Python version management via uv integration when needed</li><li>Production adoption: Already used by high-profile projects including CPython, Apache Airflow, FastAPI, Astral's Ruff/Ty, and Home Assistant despite being new</li>
       </ul>
-      <div class="tags"><span class="tag">DevTools</span><span class="tag">Rust</span><span class="tag">Git</span><span class="tag">CI/CD</span></div>
+      <div class="tags"><span class="tag">Developer Tools</span><span class="tag">Rust</span><span class="tag">Git</span><span class="tag">DevOps</span></div>
       <p><a href="https://github.com/j178/prek" target="_blank">阅读原文 →</a></p>
-    </div>
-    
-    <div class="article tech-deep">
-      <div class="article-title">Package Managers à la Carte: A Formal Model of Dependency Resolution</div>
-      <div class="article-meta">来源: Lobste.rs · 评分: 7.1/10 <span class="level-badge level-advanced">advanced</span></div>
-      <div class="article-summary"><strong>为什么重要:</strong> This paper offers a mathematically rigorous way to break down the Tower of Babel in software dependencies—enabling cross-language dependency resolution and finally making multilingual projects manageable.</div>
-      <ul class="key-points">
-        <li>Problem scope: Every programming language and OS has its own package manager with subtly different semantics, creating fragmentation that blocks multilingual projects and obscures security vulnerabilities in dependency graphs.</li><li>Core contribution: The Package Calculus—a formalism that serves as an intermediate representation capturing the essential semantics of diverse package managers through formal reductions.</li><li>Expressive power: The calculus is proven capable of modeling real-world diversity in dependency expression languages, not just theoretical cases.</li>
-      </ul>
-      <div class="tags"><span class="tag">Formal Methods</span><span class="tag">Dependency Management</span><span class="tag">Programming Languages</span><span class="tag">Software Engineering</span></div>
-      <p><a href="https://arxiv.org/abs/2602.18602" target="_blank">阅读原文 →</a></p>
     </div>
     
     </div>
@@ -114,9 +103,9 @@
 
     <div class="stats">
       <table>
-        <tr><td>文章总数</td><td><strong>4 篇</strong></td></tr>
-        <tr><td>平均质量分</td><td><strong>7.4/10</strong></td></tr>
-        <tr><td>预计阅读时间</td><td><strong>6 分钟</strong></td></tr>
+        <tr><td>文章总数</td><td><strong>3 篇</strong></td></tr>
+        <tr><td>平均质量分</td><td><strong>7.6/10</strong></td></tr>
+        <tr><td>预计阅读时间</td><td><strong>5 分钟</strong></td></tr>
       </table>
     </div>
 
